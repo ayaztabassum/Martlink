@@ -1,0 +1,17 @@
+id,name,unit,price,oldPrice,category,emoji,badge,variants,stock
+1,Lays Classic,Handout pack,42,,Snacks & Biscuits,🍟,,"Handout pack:42;Small Pack:70;Family Pack:150",40
+2,Shahi Nimco Savory Mix,200g,82,,Snacks & Biscuits,🥨,,,3
+3,Candyland Jelly,Box of 10,150,,Snacks & Biscuits,🍬,,,25
+4,Cadbury Dairy Milk,65g,120,140,Chocolates & Confectionery,🍫,SALE,"65g:120;150g bar:260;Family Pack (4x65g):440",0
+5,Coca-Cola,1.5L bottle,180,,Beverages,🥤,,"345ml can:70;1.5L bottle:180;2.25L bottle:250",60
+6,Fanta,1.5L bottle,175,,Beverages,🍊,,"345ml can:65;1.5L bottle:175",50
+7,7Up,1.5L bottle,175,,Beverages,🥤,,"345ml can:65;1.5L bottle:175",5
+8,Fresh Orange Juice,1 litre,280,,Beverages,🧃,,,15
+9,Fresh Bananas,1 dozen,180,,Fruits & Veg,🍌,,,20
+10,Tomatoes,1 kg,120,150,Fruits & Veg,🍅,SALE,"500g:65;1 kg:120;2 kg:230",0
+11,Nestle Milk,1 litre,340,,Dairy & Breakfast,🥛,,"500ml:180;1 litre:340;1.5 litre:490",18
+12,Farm Eggs,Tray of 30,750,,Dairy & Breakfast,🥚,,"Half Dozen:150;Dozen:290;Tray of 30:750",2
+13,Surf Excel,1 kg,520,,Home Care & Cleaning,🧺,,"500g:280;1 kg:520;3 kg:1450",30
+14,Tissue Rolls,Pack of 6,390,,Home Care & Cleaning,🧻,,,
+15,Nutella,350g,1450,,Instant & Ready-to-Eat Foods,🍫,IMPORTED,"350g:1450;750g:2650",4
+16,Fresh Bakery Bread,1 loaf,170,,Instant & Ready-to-Eat Foods,🍞,,,12

@@ -1,5 +1,5 @@
 id,name,unit,price,oldPrice,category,emoji,badge,variants,stock
-1,Mezan Cooking Oil,1Ltr,640.0,,Groceries,images/1.jpg,,,
+1,Mezan Cooking Oil,1Ltr,640.0,,Groceries,data/images/1.jpg,,,
 2,Sugar,1kg,225.0,,Groceries,images/2.jpg,,,
 3,Falak Bachat Long Grain Rice,1kg,360.0,,Groceries,images/3.png,,,
 4,Al-Khubz Fine Atta,10kg,1720.0,,Groceries,images/4.jpg,,,

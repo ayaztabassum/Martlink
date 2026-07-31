@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | MartLink Solutions</title>
+<meta name="description" content="Get in touch with MartLink Solutions for a free demo of your branded commission-free website and mobile app.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/contact.css">
+</head>
+<body>
+
+<header id="site-header">
+  <div class="container">
+    <a href="index.html" class="brandmark">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <path d="M50 8 A42 42 0 1 0 78 82" stroke="#e8a93c" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path d="M22 34 H34 L42 66 H78" stroke="#e8a93c" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M42 66 H78 L86 42 H36" stroke="#e8a93c" stroke-width="6" stroke-linejoin="round" fill="none"/>
+  <circle cx="50" cy="78" r="6" fill="#e8a93c"/>
+  <circle cx="72" cy="78" r="6" fill="#e8a93c"/>
+  <rect x="66" y="10" width="9" height="9" fill="#fff8ec"/>
+  <rect x="54" y="19" width="7" height="7" fill="#e8a93c"/>
+  <rect x="44" y="27" width="6" height="6" fill="#e8a93c"/>
+</svg>
+      <span class="word">Mart<span>Link</span> Solutions</span>
+    </a>
+    <nav id="nav-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="active">Contact</a>
+    </nav>
+    <div id="nav-cta">
+      <a href="contact.html" class="btn btn-outline" style="padding:11px 22px; font-size:14px;">Free Demo</a>
+      <button id="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+
+<section class="page-banner">
+  <div class="container">
+    <span class="eyebrow">Get In Touch</span>
+    <h1>Let's get your store online.</h1>
+    <p>Tell us a bit about your business and we'll get back to you with a free demo — usually within the same day.</p>
+  </div>
+</section>
+
+<section id="contact-main">
+  <div class="container contact-grid">
+
+    <div class="contact-form-card">
+      <form id="contact-form">
+        <div class="form-row">
+          <label for="f-name">Your Name</label>
+          <input type="text" id="f-name" name="name" placeholder="e.g. Ahmed Khan" required>
+        </div>
+        <div class="form-row">
+          <label for="f-business">Business Name</label>
+          <input type="text" id="f-business" name="business" placeholder="e.g. Khan Grocery Store">
+        </div>
+        <div class="form-row">
+          <label for="f-type">Business Type</label>
+          <select id="f-type" name="type">
+            <option value="Grocery Store / Mart">Grocery Store / Mart</option>
+            <option value="Restaurant">Restaurant</option>
+            <option value="Specialty Retail">Specialty Retail</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="f-phone">Phone / WhatsApp Number</label>
+          <input type="tel" id="f-phone" name="phone" placeholder="03xx-xxxxxxx" required>
+        </div>
+        <div class="form-row">
+          <label for="f-message">Message</label>
+          <textarea id="f-message" name="message" placeholder="Tell us a little about your store and what you're looking for..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+        <div id="form-status"></div>
+      </form>
+    </div>
+
+    <div class="contact-info-card">
+      <h3>Contact Details</h3>
+      <div class="info-row">
+        <div class="ic">📞</div>
+        <div class="txt"><div class="lbl">Phone / WhatsApp</div>0302-2858832</div>
+      </div>
+      <div class="info-row">
+        <div class="ic">✉</div>
+        <div class="txt"><div class="lbl">Email</div>martlinksolutions@gmail.com</div>
+      </div>
+      <div class="info-row">
+        <div class="ic">📍</div>
+        <div class="txt"><div class="lbl">Service Area</div>Serving Local Stores Across Karachi</div>
+      </div>
+      <a href="https://wa.me/923022858832" target="_blank" rel="noopener" class="wa-inline-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.87 9.87 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2z"/></svg>
+        Chat on WhatsApp
+      </a>
+      <div class="map-note">Free live demos are available in person for stores across Karachi, or remotely via a quick video call — whichever works best for you.</div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  var form = document.getElementById('contact-form');
+  var status = document.getElementById('form-status');
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var name = document.getElementById('f-name').value;
+    var business = document.getElementById('f-business').value;
+    var type = document.getElementById('f-type').value;
+    var phone = document.getElementById('f-phone').value;
+    var message = document.getElementById('f-message').value;
+
+    var subject = encodeURIComponent('Free Demo Request - ' + (business || name));
+    var body = encodeURIComponent(
+      'Name: ' + name + '\n' +
+      'Business: ' + business + '\n' +
+      'Business Type: ' + type + '\n' +
+      'Phone: ' + phone + '\n\n' +
+      'Message:\n' + message
+    );
+    window.location.href = 'mailto:martlinksolutions@gmail.com?subject=' + subject + '&body=' + body;
+
+    status.textContent = 'Opening your email app to send this message...';
+    status.classList.add('show');
+  });
+</script>
+
+
+<footer id="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brandmark">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <path d="M50 8 A42 42 0 1 0 78 82" stroke="#e8a93c" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path d="M22 34 H34 L42 66 H78" stroke="#e8a93c" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M42 66 H78 L86 42 H36" stroke="#e8a93c" stroke-width="6" stroke-linejoin="round" fill="none"/>
+  <circle cx="50" cy="78" r="6" fill="#e8a93c"/>
+  <circle cx="72" cy="78" r="6" fill="#e8a93c"/>
+  <rect x="66" y="10" width="9" height="9" fill="#fff8ec"/>
+  <rect x="54" y="19" width="7" height="7" fill="#e8a93c"/>
+  <rect x="44" y="27" width="6" height="6" fill="#e8a93c"/>
+</svg>
+          <span class="word">Mart<span>Link</span> Solutions</span>
+        </a>
+        <p>We build branded websites and mobile apps for local marts, grocery stores, and restaurants — so you keep your customers, your data, and your profit.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <a href="services.html">Services</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="about.html">About Us</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="about.html">Our Story</a>
+        <a href="contact.html">Contact</a>
+        <a href="contact.html">Free Demo</a>
+      </div>
+      <div>
+        <h4>Get in Touch</h4>
+        <p>📞 0302-2858832</p>
+        <p>✉ martlinksolutions@gmail.com</p>
+        <p>📍 Serving Local Stores Across Karachi</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 MartLink Solutions by Ayaz Tabassum. All rights reserved.</span>
+      <span>Empowering Local Stores, Digitally.</span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/923022858832" id="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="#fff"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.87 9.87 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.02h-.01a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-3.08.81.82-3-.19-.31a8.08 8.08 0 0 1-1.24-4.3c0-4.48 3.65-8.12 8.14-8.12 2.17 0 4.21.85 5.75 2.38a8.06 8.06 0 0 1 2.38 5.75c0 4.48-3.65 8.1-8.14 8.1zm4.46-6.08c-.24-.12-1.45-.71-1.67-.8-.22-.08-.39-.12-.55.12-.16.24-.63.8-.78.97-.14.16-.29.18-.53.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.35-1.67-.14-.24-.02-.37.11-.49.11-.11.24-.29.36-.43.12-.14.16-.24.24-.4.08-.16.04-.31-.02-.43-.06-.12-.55-1.32-.75-1.81-.2-.48-.4-.41-.55-.42-.14-.01-.31-.01-.47-.01-.16 0-.43.06-.65.31-.22.24-.86.84-.86 2.05 0 1.21.88 2.38 1 2.54.12.16 1.73 2.64 4.19 3.7.59.25 1.04.4 1.4.52.59.19 1.12.16 1.54.1.47-.07 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28z"/></svg>
+</a>
+
+<script>
+  var navToggle = document.getElementById('nav-toggle');
+  var navLinks = document.getElementById('nav-links');
+  if (navToggle) {
+    navToggle.addEventListener('click', function() {
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() { navLinks.classList.remove('open'); });
+    });
+  }
+</script>
+
+</body>
+</html>

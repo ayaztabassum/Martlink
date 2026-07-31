@@ -1,0 +1,46 @@
+/* ================= PORTFOLIO PAGE ================= */
+
+#pf-list { background: var(--cream); }
+.pf-detail {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+  align-items: center; padding: 60px 0;
+}
+.pf-detail:not(:last-child) { border-bottom: 1px solid var(--line); }
+.pf-visual {
+  border-radius: 24px; overflow: hidden;
+  aspect-ratio: 4/3;
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+}
+.pf-visual.a { background: linear-gradient(135deg, #3a2416, #1c1108); }
+.pf-visual.b { background: linear-gradient(135deg, #2b1a0c, #150d06); }
+.pf-visual .mock-phone {
+  width: 46%; aspect-ratio: 0.5/1;
+  background: #0d0803; border-radius: 26px; border: 5px solid #000;
+  padding: 8px;
+}
+.pf-visual .mock-phone .screen { background: #fffdf8; height: 100%; border-radius: 18px; overflow: hidden; }
+.pf-visual .mock-phone .bar { height: 15%; background: var(--gold); }
+.pf-visual .mock-phone .row { margin: 8%; height: 14%; background: #f3e8d0; border-radius: 8px; }
+
+.pf-copy .tag {
+  font-family: var(--font-display); font-size: 13px; font-weight: 700;
+  color: var(--gold); text-transform: uppercase; letter-spacing: 1px;
+}
+.pf-copy h2 { font-size: 30px; margin-top: 10px; }
+.pf-copy p { color: var(--muted); margin-top: 14px; font-size: 15.5px; }
+.pf-copy .feature-list { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 10px; }
+.pf-copy .feature-list span {
+  background: var(--cream-card); border: 1px solid var(--line);
+  padding: 8px 16px; border-radius: 20px; font-size: 13px; color: var(--ink);
+  font-family: var(--font-display); font-weight: 500;
+}
+.pf-note {
+  margin-top: 20px; font-size: 13.5px; color: var(--muted); font-style: italic;
+  background: rgba(232,169,60,0.08); border-left: 3px solid var(--gold);
+  padding: 12px 16px; border-radius: 8px;
+}
+
+@media (max-width: 900px) {
+  .pf-detail { grid-template-columns: 1fr; }
+}

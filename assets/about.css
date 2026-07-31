@@ -1,0 +1,48 @@
+/* ================= ABOUT PAGE ================= */
+
+#about-story { background: var(--cream); }
+.story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.story-copy p { color: var(--muted); font-size: 16px; margin-top: 16px; }
+.story-copy p:first-of-type { margin-top: 20px; }
+.founder-card {
+  background: var(--cream-card); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 40px;
+  text-align: center;
+}
+.founder-avatar {
+  width: 96px; height: 96px; border-radius: 50%; margin: 0 auto 20px;
+  background: linear-gradient(135deg, var(--brand-dark), var(--brand-dark2));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 38px; color: var(--gold); font-family: var(--font-display); font-weight: 800;
+}
+.founder-card h3 { font-size: 22px; }
+.founder-card .role { color: var(--gold); font-size: 14px; font-weight: 600; font-family: var(--font-display); margin-top: 4px; }
+.founder-card p { margin-top: 18px; color: var(--muted); font-size: 14.5px; text-align: left; }
+
+#about-mission { background: var(--brand-dark); }
+#about-mission .eyebrow { background: rgba(232,169,60,0.15); }
+#about-mission h2 { color: #fff8ec; font-size: 32px; max-width: 640px; }
+.mission-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 46px; }
+.mission-card {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(232,169,60,0.2);
+  border-radius: var(--radius); padding: 30px 26px;
+}
+.mission-card .ic { font-size: 28px; color: var(--gold); margin-bottom: 16px; }
+.mission-card h3 { color: #fff8ec; font-size: 18px; margin-bottom: 8px; }
+.mission-card p { color: #a89577; font-size: 14.5px; }
+
+#about-who { background: var(--cream); }
+.who-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 46px; }
+.who-card { text-align: center; padding: 20px; }
+.who-card .ic {
+  width: 64px; height: 64px; border-radius: 18px; margin: 0 auto 18px;
+  background: linear-gradient(135deg, var(--brand-dark), var(--brand-dark2));
+  color: var(--gold); display: flex; align-items: center; justify-content: center; font-size: 26px;
+}
+.who-card h3 { font-size: 17px; margin-bottom: 8px; }
+.who-card p { font-size: 14px; color: var(--muted); }
+
+@media (max-width: 900px) {
+  .story-grid { grid-template-columns: 1fr; }
+  .mission-grid, .who-grid { grid-template-columns: 1fr; }
+}

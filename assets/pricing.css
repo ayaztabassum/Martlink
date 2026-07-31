@@ -1,0 +1,68 @@
+/* ================= PRICING PAGE ================= */
+
+#pricing-cards { background: var(--cream); }
+.price-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 54px; }
+.price-card {
+  background: var(--cream-card); border: 1px solid var(--line);
+  border-radius: 24px; padding: 44px 38px; position: relative;
+}
+.price-card.featured {
+  background: var(--brand-dark); border-color: var(--brand-dark);
+}
+.price-card .badge {
+  position: absolute; top: -14px; right: 38px;
+  background: var(--gold); color: var(--brand-dark);
+  font-family: var(--font-display); font-weight: 700; font-size: 12.5px;
+  padding: 6px 16px; border-radius: 20px; letter-spacing: 0.3px;
+}
+.price-card h3 { font-size: 15px; text-transform: uppercase; letter-spacing: 1px; color: var(--gold); font-family: var(--font-display); font-weight: 700; }
+.price-card.featured h3 { color: var(--gold-bright); }
+.price-card .headline { font-size: 26px; margin-top: 10px; }
+.price-card.featured .headline { color: #fff8ec; }
+.price-card .price-row {
+  display: flex; align-items: baseline; gap: 10px; margin-top: 26px; flex-wrap: wrap;
+}
+.price-card .amount {
+  font-family: var(--font-display); font-weight: 800; font-size: 40px; color: var(--brand-dark);
+}
+.price-card.featured .amount { color: #fff8ec; }
+.price-card .period { font-size: 14px; color: var(--muted); }
+.price-card.featured .period { color: #a89577; }
+.price-card .divider { height: 1px; background: var(--line); margin: 28px 0; }
+.price-card.featured .divider { background: rgba(232,169,60,0.2); }
+.price-card ul li {
+  display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px; font-size: 14.5px;
+}
+.price-card.featured ul li { color: #d9c7a8; }
+.price-card ul li .chk {
+  width: 20px; height: 20px; border-radius: 50%; background: var(--gold);
+  color: var(--brand-dark); flex-shrink: 0; margin-top: 1px;
+  display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800;
+}
+.price-card .btn { width: 100%; justify-content: center; margin-top: 30px; }
+
+/* ---- Milestone table ---- */
+#milestones { background: var(--cream); }
+.milestone-table {
+  margin-top: 46px; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden;
+  background: var(--cream-card);
+}
+.milestone-row {
+  display: grid; grid-template-columns: 1fr 2fr auto;
+  gap: 20px; padding: 22px 30px; align-items: center;
+}
+.milestone-row:not(:last-child) { border-bottom: 1px solid var(--line); }
+.milestone-row.total { background: rgba(232,169,60,0.1); font-weight: 700; }
+.milestone-row .phase { font-family: var(--font-display); font-weight: 700; color: var(--brand-dark); font-size: 15px; }
+.milestone-row .desc { color: var(--muted); font-size: 14.5px; }
+.milestone-row .amt { font-family: var(--font-display); font-weight: 800; color: var(--brand-dark); font-size: 17px; white-space: nowrap; }
+
+/* ---- Notes ---- */
+.price-note {
+  margin-top: 24px; font-size: 14px; color: var(--muted); text-align: center;
+}
+
+@media (max-width: 900px) {
+  .price-grid { grid-template-columns: 1fr; }
+  .milestone-row { grid-template-columns: 1fr; gap: 6px; }
+}

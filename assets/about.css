@@ -42,6 +42,91 @@
 .who-card h3 { font-size: 17px; margin-bottom: 8px; }
 .who-card p { font-size: 14px; color: var(--muted); }
 
+/* ================= MEET THE FOUNDER ================= */
+#founder-feature {
+  background: var(--brand-dark);
+  position: relative;
+  overflow: hidden;
+}
+#founder-feature::before {
+  content: "";
+  position: absolute; top: -180px; left: -180px;
+  width: 460px; height: 460px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(232,169,60,0.14), transparent 70%);
+  pointer-events: none;
+}
+#founder-feature .container { position: relative; z-index: 2; max-width: 780px; }
+.founder-head { margin-bottom: 40px; }
+.founder-head .eyebrow { background: rgba(232,169,60,0.15); }
+.founder-head h2 {
+  color: #fff8ec; font-size: 36px; line-height: 1.25; margin-top: 4px;
+}
+.founder-head h2 em {
+  font-style: normal;
+  background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+/* career timeline: simple wrapping badge row, no scroll dependency */
+.founder-timeline {
+  display: flex; flex-wrap: wrap; gap: 10px;
+  margin-bottom: 44px;
+}
+.founder-timeline .tl-step {
+  display: flex; align-items: center; gap: 10px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(232,169,60,0.25);
+  border-radius: 30px;
+  padding: 10px 18px 10px 10px;
+}
+.founder-timeline .tl-num {
+  width: 26px; height: 26px; border-radius: 50%;
+  background: var(--gold); color: var(--brand-dark);
+  font-family: var(--font-display); font-weight: 800; font-size: 12px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.founder-timeline .tl-label {
+  font-family: var(--font-display); font-weight: 600; font-size: 13.5px; color: #fff8ec;
+  white-space: nowrap;
+}
+
+.founder-copy p {
+  color: #cbb488; font-size: 17px; margin-bottom: 20px; line-height: 1.75;
+}
+.founder-copy p strong { color: #fff8ec; }
+
+.founder-copy blockquote {
+  margin: 34px 0;
+  padding: 22px 26px;
+  border-left: 3px solid var(--gold);
+  background: rgba(255,255,255,0.04);
+  border-radius: 0 12px 12px 0;
+}
+.founder-copy blockquote p {
+  font-family: var(--font-display); font-weight: 600; font-size: 21px;
+  color: #fff8ec; line-height: 1.4; margin: 0;
+}
+
+.mission-line-box {
+  margin-top: 36px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+  border-radius: 16px; padding: 26px 28px;
+}
+.mission-line-box .lbl {
+  font-family: var(--font-display); font-size: 12.5px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1px; color: rgba(28,17,8,0.6);
+}
+.mission-line-box .txt {
+  font-family: var(--font-display); font-weight: 800; font-size: 22px;
+  color: var(--brand-dark); margin-top: 8px; line-height: 1.3;
+}
+
+@media (max-width: 768px) {
+  .founder-head h2 { font-size: 27px; }
+  .founder-timeline .tl-label { font-size: 12.5px; }
+  .founder-copy blockquote p { font-size: 18px; }
+}
+
 @media (max-width: 900px) {
   .story-grid { grid-template-columns: 1fr; }
   .mission-grid, .who-grid { grid-template-columns: 1fr; }

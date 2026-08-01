@@ -1,46 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><!-- PLAYABLE_TOUCH_PATCH_V1 --><script>
+(function() {
+  if (window.__playableTouchPatchInstalled) return;
+  window.__playableTouchPatchInstalled = true;
+  var origAdd = EventTarget.prototype.addEventListener;
+  var blockedTypes = { touchstart: 1, touchmove: 1, wheel: 1 };
+  EventTarget.prototype.addEventListener = function(type, listener, options) {
+    if (blockedTypes[type]) {
+      if (options === undefined || options === null) {
+        options = { passive: true };
+      } else if (typeof options === 'boolean') {
+        options = { capture: options, passive: true };
+      } else {
+        options = Object.assign({}, options, { passive: true });
+      }
+    }
+    return origAdd.call(this, type, listener, options);
+  };
+})();
+</script><script>window.Intl=window.Intl||{};Intl.t=function(s){return(Intl._locale&&Intl._locale[s])||s;};</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>How Much Does a Grocery App Cost in Karachi in 2026? | MartLink PK</title>
-<meta name="description" content="Grocery app cost in Karachi in 2026 starts from Rs 60,000 setup + monthly support at MartLink PK. Premium bug-free branded website + Android & iOS apps.">
+<title>How Much Does It Cost to Build a Grocery Delivery App in Karachi in 2026? | MartLink PK</title>
+<meta name="description" content="In 2026, a premium grocery delivery app in Karachi costs Rs 60,000 setup + small monthly support at MartLink PK. Get branded website + Android & iOS apps in 7 days, no commission.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/style.css">
 <style>
-:root{ --brand-dark:#1c1108; --gold:#e8a93c; --gold-bright:#f5c86a; --cream:#fffaf1; --cream-card:#fff8ec; --line:rgba(232,169,60,0.18); --muted:#8a7a62; --radius:20px; --font-display:'Poppins',sans-serif; --font-body:'Inter',sans-serif; }
-.page-banner{ background: var(--cream); padding: 50px 0 30px; }
+:root{
+  --brand-dark:#1c1108; --brand-dark2:#2b1c0e; --gold:#e8a93c; --gold-bright:#f5c86a;
+  --cream:#fffaf1; --cream-card:#fff8ec; --line:rgba(232,169,60,0.18); --muted:#8a7a62;
+  --radius:20px; --font-display:'Poppins',sans-serif; --font-body:'Inter',sans-serif;
+}
+#article-hero{ background: var(--cream); padding: 50px 0 30px; }
 .article-wrap{ background: var(--cream); padding: 0 0 80px; }
-.article-card{ background: #fff; border:1px solid var(--line); border-radius:24px; padding:40px; max-width:850px; margin:0 auto; line-height:1.8; }
-.article-card h1{ font-family: var(--font-display); font-size:36px; font-weight:800; color:var(--brand-dark); line-height:1.2; }
-.article-card h2{ font-family: var(--font-display); font-size:24px; font-weight:700; color:var(--brand-dark); margin-top:36px; }
-.article-card p, .article-card li{ font-family: var(--font-body); color:#3d2e1f; font-size:16.5px; }
-.article-card ul, .article-card ol{ margin-top:12px; padding-left:20px; }
+.container{ max-width:1140px; margin:0 auto; padding:0 24px; }
+.breadcrumb{ font-family: var(--font-display); font-size:13px; color: var(--muted); margin-bottom:18px; }
+.breadcrumb a{ color: var(--brand-dark); text-decoration:none; font-weight:600; }
+.article-card{
+  background: #ffffff; border:1px solid var(--line);
+  border-radius: 24px; padding: 44px 40px; max-width: 860px; margin: 0 auto;
+  box-shadow: 0 8px 30px rgba(28,17,8,0.04);
+}
+.article-card h1{ font-family: var(--font-display); font-size:38px; font-weight:800; color: var(--brand-dark); line-height:1.18; margin:0; }
+.article-meta{ margin-top:14px; font-size:13.5px; color: var(--muted); font-family: var(--font-display); font-weight:500; }
+.article-card h2{ font-family: var(--font-display); font-size:22px; font-weight:700; color: var(--brand-dark); margin-top:36px; margin-bottom:12px; }
+.article-card p{ font-family: var(--font-body); color: #3d2e1f; font-size:16.5px; line-height:1.75; margin-top:12px; }
+.article-card ul, .article-card ol{ margin-top:14px; padding-left:22px; }
+.article-card li{ font-family: var(--font-body); color: #3d2e1f; font-size:16px; line-height:1.7; margin-top:8px; }
+.highlight-box{
+  background: linear-gradient(135deg, var(--cream-card), #fff);
+  border:1px solid var(--line); border-left:4px solid var(--gold);
+  border-radius: 16px; padding: 20px 22px; margin-top: 22px;
+}
+.cta-box{
+  margin-top:40px; background: linear-gradient(135deg, var(--brand-dark), var(--brand-dark2));
+  border-radius: 20px; padding: 30px 28px; text-align:center;
+}
+.cta-box h3{ color: #fff8ec; font-family: var(--font-display); font-size:22px; margin:0; }
+.cta-box p{ color: #cbb488; font-size:14.5px; margin-top:8px; }
+.btn-gold{
+  display:inline-block; margin-top:18px; background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+  color: var(--brand-dark); font-family: var(--font-display); font-weight:800;
+  padding:12px 26px; border-radius:30px; text-decoration:none; font-size:14.5px;
+}
+@media(max-width:700px){ .article-card{ padding:26px 20px; } .article-card h1{ font-size:28px; } }
 </style>
 </head>
 <body>
-<header id="site-header">... same header as index ...</header>
 
-<section class="article-wrap">
-<div class="container">
-<div class="article-card">
+<header id="site-header">
+  <div class="container">
+    <a href="../index.html" class="brandmark">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <path d="M50 8 A42 42 0 1 0 78 82" stroke="#e8a93c" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path d="M22 34 H34 L42 66 H78" stroke="#e8a93c" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M42 66 H78 L86 42 H36" stroke="#e8a93c" stroke-width="6" stroke-linejoin="round" fill="none"/>
+  <circle cx="50" cy="78" r="6" fill="#e8a93c"/>
+  <circle cx="72" cy="78" r="6" fill="#e8a93c"/>
+  <rect x="66" y="10" width="9" height="9" fill="#fff8ec"/>
+  <rect x="54" y="19" width="7" height="7" fill="#e8a93c"/>
+  <rect x="44" y="27" width="6" height="6" fill="#e8a93c"/>
+</svg>
+      <span class="word">Mart<span>Link</span> Solutions</span>
+    </a>
+    <nav id="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="../services.html">Services</a>
+        <a href="../pricing.html">Pricing</a>
+        <a href="../portfolio.html">Portfolio</a>
+        <a href="../about.html">About</a>
+        <a href="../contact.html">Contact</a>
+        <a href="index.html" class="active">Blog</a>
+    </nav>
+    <div id="nav-cta">
+      <a href="../contact.html" class="btn btn-outline" style="padding:11px 22px; font-size:14px;">Free Demo</a>
+      <button id="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
 
-<!-- **************** ARTICLE START **************** -->
-<!-- YAHAN APNA ARTICLE PASTE KAREN -->
-
-<h1>How Much Does It Cost to Build a Premium Grocery App in Karachi in 2026?</h1>
-<p><small>By MartLink PK Team | May 13, 2026 | Karachi, Pakistan</small></p>
-<p>If you run a super store or mart in Karachi...</p>
-
-<!-- Aapka baaki article yahan -->
-
-<!-- **************** ARTICLE END **************** -->
-
-</div>
-</div>
+<section id="article-hero">
+  <div class="container">
+    <div style="max-width:860px; margin:0 auto;">
+      <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="index.html">Blog</a> / Grocery App Cost</div>
+    </div>
+  </div>
 </section>
 
-<footer>... same footer ...</footer>
-</div>
+<section class="article-wrap">
+  <div class="container">
+    <div class="article-card">
+
+      <!-- **************** ARTICLE CONTENT START - AAP YAHAN SE EDIT KAR SAKTE HO **************** -->
+
+      <h1>How Much Does It Cost to Build a Premium Grocery Delivery App in Karachi in 2026?</h1>
+      <div class="article-meta">By MartLink PK Team | May 13, 2026 | Karachi, Pakistan</div>
+
+      <p>If you run a super mart or grocery store in Karachi, you must have thought – <strong>“Mera apna app hona chahiye jaise Imtiaz aur Chase ka hai.”</strong> But the first question is always about real cost and quality.</p>
+
+      <h2>Real Cost in Karachi Market (2026)</h2>
+      <p>In 2026, building a proper branded grocery delivery system is not cheap if you go the traditional route:</p>
+      
+      <div class="highlight-box">
+        <ul style="margin:0; padding-left:18px;">
+          <li><strong>Freelancer:</strong> Rs. 80,000 - 1,50,000 (No support, security risk, stops working after 2 months)</li>
+          <li><strong>Software Company:</strong> Rs. 4,00,000 - 8,00,000 (Too expensive for a single mart, 3-4 months timeline)</li>
+          <li><strong>MartLink PK Solution:</strong> Starts from Rs. 60,000 setup + small monthly support (Made specially for premium marts, ready in 7 days)</li>
+        </ul>
+      </div>
+
+      <h2>What Features You Must Have for a Premium Store?</h2>
+      <ol>
+        <li><strong>Customer Website + Android & iPhone Apps</strong> with your own branding</li>
+        <li><strong>Powerful Admin Panel</strong> to add 5000+ products with daily price updates</li>
+        <li><strong>Rider App for Delivery</strong> with live order tracking</li>
+        <li><strong>WhatsApp Order Notification</strong> – every order directly on your WhatsApp</li>
+        <li><strong>100% Your Business, No Commission</strong> – Your customers, your data, your profit</li>
+      </ol>
+
+      <h2>Why Foodpanda / Pandamart is Not Good for Premium Marts?</h2>
+      <p>They take 20-35% commission on every order. If you sell Rs. 1000, you only get Rs. 700. Plus, your store is listed next to your competitors. Customer is theirs, not yours. With your own app by MartLink PK, you keep 100% profit and build your own brand like Imtiaz.</p>
+
+      <h2>How MartLink PK Helps You?</h2>
+      <p>We are from Karachi and we only build systems for grocery stores and super marts. We give you a ready, bug-free system in 7 days. You don't need to be technical. We handle everything - Play Store upload, products entry training, server maintenance, and lifetime support.</p>
+
+      <!-- **************** ARTICLE CONTENT END **************** -->
+
+      <div class="cta-box">
+        <h3>Want a Free Demo for Your Store?</h3>
+        <p>See how your store will look online – no cost, no commitment.</p>
+        <a href="../contact.html" class="btn-gold">Get Free Demo</a>
+        <div style="margin-top:14px;"><a href="../pricing.html" style="color:var(--gold); font-size:13px; text-decoration:none; font-weight:600;">View Pricing →</a> <span style="color:rgba(255,255,255,0.3); margin:0 6px;">|</span> <a href="../services.html" style="color:var(--gold); font-size:13px; text-decoration:none; font-weight:600;">Our Services →</a></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer id="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="brandmark">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50 8 A42 42 0 1 0 78 82" stroke="#e8a93c" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M22 34 H34 L42 66 H78" stroke="#e8a93c" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M42 66 H78 L86 42 H36" stroke="#e8a93c" stroke-width="6" stroke-linejoin="round" fill="none"/><circle cx="50" cy="78" r="6" fill="#e8a93c"/><circle cx="72" cy="78" r="6" fill="#e8a93c"/></svg>
+          <span class="word">Mart<span>Link</span> Solutions</span>
+        </a>
+        <p>We build branded websites and mobile apps for local marts, grocery stores, and restaurants — so you keep your customers, your data, and your profit.</p>
+      </div>
+      <div><h4>Explore</h4><a href="../services.html">Services</a><a href="../pricing.html">Pricing</a><a href="../portfolio.html">Portfolio</a><a href="../about.html">About Us</a></div>
+      <div><h4>Company</h4><a href="../about.html">Our Story</a><a href="../contact.html">Contact</a><a href="index.html">Blog</a></div>
+      <div><h4>Get in Touch</h4><p>📞 0302-2858832</p><p>✉ martlinksolutions@gmail.com</p><p>📍 Serving Local Stores Across Karachi</p></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 MartLink Solutions by Ayaz Tabassum. All rights reserved.</span><span>Empowering Local Stores, Digitally.</span></div>
+  </div>
+</footer>
+
+<script>
+  var navToggle = document.getElementById('nav-toggle');
+  var navLinks = document.getElementById('nav-links');
+  if (navToggle) {
+    navToggle.addEventListener('click', function() { navLinks.classList.toggle('open'); });
+  }
+</script>
+
 </body>
 </html>

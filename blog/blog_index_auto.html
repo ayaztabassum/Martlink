@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog - Tips for Grocery Store Owners | MartLink Solutions</title>
+<meta name="description" content="Read latest tips on grocery delivery apps, store growth, and how to avoid Foodpanda commission in Karachi by MartLink Solutions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Main theme CSS - same as your website -->
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+/* Blog specific - matches your theme */
+:root{
+  --brand-dark:#1c1108;
+  --brand-dark2:#2b1c0e;
+  --gold:#e8a93c;
+  --gold-bright:#f5c86a;
+  --cream:#fffaf1;
+  --cream-card:#fff8ec;
+  --line:rgba(232,169,60,0.18);
+  --muted:#8a7a62;
+  --radius:20px;
+  --font-display:'Poppins',sans-serif;
+  --font-body:'Inter',sans-serif;
+}
+.page-banner{ background: var(--cream); padding: 70px 0 50px; text-align:center; }
+.page-banner .eyebrow{ display:inline-block; background: rgba(232,169,60,0.15); color: var(--gold); font-family: var(--font-display); font-weight:700; font-size:12px; letter-spacing:1.2px; text-transform:uppercase; padding:7px 14px; border-radius:20px; }
+.page-banner h1{ font-family: var(--font-display); font-size:42px; font-weight:800; color: var(--brand-dark); margin-top:14px; line-height:1.15; }
+.page-banner p{ color: var(--muted); font-size:17px; max-width:600px; margin:14px auto 0; line-height:1.6; }
+
+#blog-listing{ background: var(--cream); padding: 20px 0 80px; }
+.container{ max-width:1140px; margin:0 auto; padding:0 24px; }
+.blog-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap:26px; margin-top:20px; }
+.blog-card{
+  background: var(--cream-card); border:1px solid var(--line);
+  border-radius: var(--radius); padding:28px 26px;
+  transition: all 0.25s; text-decoration:none; display:flex; flex-direction:column;
+}
+.blog-card:hover{ transform: translateY(-4px); border-color: rgba(232,169,60,0.4); box-shadow: 0 10px 30px rgba(28,17,8,0.08); }
+.blog-card .num{
+  width:38px; height:38px; border-radius:12px;
+  background: linear-gradient(135deg, var(--brand-dark), var(--brand-dark2));
+  color: var(--gold); display:flex; align-items:center; justify-content:center;
+  font-family: var(--font-display); font-weight:800; font-size:15px; margin-bottom:16px;
+}
+.blog-card h3{ font-family: var(--font-display); font-size:18px; font-weight:700; color: var(--brand-dark); line-height:1.35; margin:0; min-height:48px; }
+.blog-card p{ color: var(--muted); font-size:14px; line-height:1.6; margin-top:10px; flex:1; }
+.blog-card .meta{ margin-top:18px; display:flex; justify-content:space-between; align-items:center; }
+.blog-card .meta span{ font-size:12.5px; color: var(--muted); font-family: var(--font-display); font-weight:600; }
+.blog-card .read{ font-size:13px; font-weight:700; color: var(--brand-dark); background: linear-gradient(135deg, var(--gold), var(--gold-bright)); padding:7px 14px; border-radius:20px; }
+
+#loading{ text-align:center; padding:40px; color: var(--muted); font-family: var(--font-display); }
+#no-blogs{ display:none; text-align:center; padding:60px 20px; color: var(--muted); }
+
+@media(max-width:900px){ .blog-grid{ grid-template-columns:1fr 1fr; } .page-banner h1{ font-size:32px; } }
+@media(max-width:600px){ .blog-grid{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+<header id="site-header">
+  <div class="container">
+    <a href="../index.html" class="brandmark">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <path d="M50 8 A42 42 0 1 0 78 82" stroke="#e8a93c" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path d="M22 34 H34 L42 66 H78" stroke="#e8a93c" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M42 66 H78 L86 42 H36" stroke="#e8a93c" stroke-width="6" stroke-linejoin="round" fill="none"/>
+  <circle cx="50" cy="78" r="6" fill="#e8a93c"/>
+  <circle cx="72" cy="78" r="6" fill="#e8a93c"/>
+  <rect x="66" y="10" width="9" height="9" fill="#fff8ec"/>
+  <rect x="54" y="19" width="7" height="7" fill="#e8a93c"/>
+  <rect x="44" y="27" width="6" height="6" fill="#e8a93c"/>
+</svg>
+      <span class="word">Mart<span>Link</span> Solutions</span>
+    </a>
+    <nav id="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="../services.html">Services</a>
+        <a href="../pricing.html">Pricing</a>
+        <a href="../portfolio.html">Portfolio</a>
+        <a href="../about.html">About</a>
+        <a href="../contact.html">Contact</a>
+        <a href="index.html" class="active">Blog</a>
+    </nav>
+    <div id="nav-cta">
+      <a href="../contact.html" class="btn btn-outline" style="padding:11px 22px; font-size:14px;">Free Demo</a>
+      <button id="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<section class="page-banner">
+  <div class="container">
+    <span class="eyebrow">MartLink Insights</span>
+    <h1>Tips for Grocery Store Owners in Karachi</h1>
+    <p>Real guides on grocery apps, Foodpanda commission, and how to grow your mart — by MartLink Solutions.</p>
+  </div>
+</section>
+
+<section id="blog-listing">
+  <div class="container">
+    <div id="loading">Loading blogs... Checking 1.html to 99.html</div>
+    <div class="blog-grid" id="blogGrid"></div>
+    <div id="no-blogs">
+      <h3 style="color:var(--brand-dark)">No blogs yet</h3>
+      <p>Add your first blog as 1.html in this folder.</p>
+    </div>
+  </div>
+</section>
+
+<footer id="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="brandmark">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <path d="M50 8 A42 42 0 1 0 78 82" stroke="#e8a93c" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path d="M22 34 H34 L42 66 H78" stroke="#e8a93c" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M42 66 H78 L86 42 H36" stroke="#e8a93c" stroke-width="6" stroke-linejoin="round" fill="none"/>
+  <circle cx="50" cy="78" r="6" fill="#e8a93c"/>
+  <circle cx="72" cy="78" r="6" fill="#e8a93c"/>
+  <rect x="66" y="10" width="9" height="9" fill="#fff8ec"/>
+  <rect x="54" y="19" width="7" height="7" fill="#e8a93c"/>
+  <rect x="44" y="27" width="6" height="6" fill="#e8a93c"/>
+</svg>
+          <span class="word">Mart<span>Link</span> Solutions</span>
+        </a>
+        <p>We build branded websites and mobile apps for local marts, grocery stores, and restaurants — so you keep your customers, your data, and your profit.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <a href="../services.html">Services</a>
+        <a href="../pricing.html">Pricing</a>
+        <a href="../portfolio.html">Portfolio</a>
+        <a href="../about.html">About Us</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="../about.html">Our Story</a>
+        <a href="../contact.html">Contact</a>
+        <a href="./">Blog</a>
+      </div>
+      <div>
+        <h4>Get in Touch</h4>
+        <p>📞 0302-2858832</p>
+        <p>✉ martlinksolutions@gmail.com</p>
+        <p>📍 Serving Local Stores Across Karachi</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 MartLink Solutions by Ayaz Tabassum. All rights reserved.</span>
+      <span>Empowering Local Stores, Digitally.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Same nav toggle as your theme
+var navToggle = document.getElementById('nav-toggle');
+var navLinks = document.getElementById('nav-links');
+if (navToggle) {
+  navToggle.addEventListener('click', function() {
+    navLinks.classList.toggle('open');
+  });
+}
+
+// AUTO BLOG SYSTEM 1.html to 99.html
+async function loadBlogs() {
+  const grid = document.getElementById('blogGrid');
+  const loading = document.getElementById('loading');
+  const noBlogs = document.getElementById('no-blogs');
+  let found = 0;
+
+  for (let i = 1; i <= 99; i++) {
+    const fileName = i + '.html';
+    try {
+      const res = await fetch(fileName, { method: 'GET', cache: 'no-store' });
+      if (!res.ok) continue; // file not found -> skip, show nothing
+
+      const htmlText = await res.text();
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(htmlText, 'text/html');
+
+      // Extract title and description from blog file
+      let title = doc.querySelector('h1')?.innerText || doc.querySelector('title')?.innerText || 'Blog ' + i;
+      let desc = doc.querySelector('meta[name="description"]')?.content || '';
+      if (!desc) {
+        desc = doc.querySelector('p')?.innerText?.substring(0, 120) + '...' || 'Read more tips for grocery store owners.';
+      }
+      let date = doc.querySelector('small')?.innerText || 'MartLink PK';
+
+      // Clean title length
+      if (title.length > 70) title = title.substring(0, 70) + '...';
+
+      const card = document.createElement('a');
+      card.href = fileName;
+      card.className = 'blog-card';
+      card.innerHTML = `
+        <div class="num">${i}</div>
+        <h3>${title}</h3>
+        <p>${desc.substring(0, 110)}...</p>
+        <div class="meta">
+          <span>${date.substring(0, 30)}</span>
+          <span class="read">Read →</span>
+        </div>
+      `;
+      grid.appendChild(card);
+      found++;
+    } catch (e) {
+      // file doesn't exist - do nothing (as you requested)
+      continue;
+    }
+  }
+
+  loading.style.display = 'none';
+  if (found === 0) noBlogs.style.display = 'block';
+}
+
+loadBlogs();
+</script>
+</body>
+</html>

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Downtown Supermart — Rider App</title>
+<meta name="theme-color" content="#1A1208">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:#0F0B06;color:#F5E6C8;min-height:100vh}
+.wrap{max-width:480px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column}
+
+/* ===== AUTH SCREENS ===== */
+#authScreen{flex:1;display:flex;flex-direction:column;justify-content:center;padding:28px 22px}
+.brand{text-align:center;margin-bottom:28px}
+.brand .icon{width:60px;height:60px;border-radius:16px;background:linear-gradient(180deg,#E6B45A,#C99A3F);display:flex;align-items:center;justify-content:center;font-size:28px;margin:0 auto 12px}
+.brand h1{font-size:20px;font-weight:800;letter-spacing:.02em}
+.brand p{font-size:12px;color:#C9A96E;margin-top:4px}
+
+.auth-toggle{display:flex;background:rgba(255,255,255,0.05);border-radius:14px;padding:4px;margin-bottom:20px}
+.auth-toggle button{flex:1;padding:10px;border:none;background:transparent;color:#C9A96E;font-weight:700;font-size:13px;border-radius:10px;cursor:pointer}
+.auth-toggle button.active{background:linear-gradient(180deg,#E6B45A,#C99A3F);color:#1A1208}
+
+.field{margin-bottom:14px}
+.field label{display:block;font-size:11.5px;color:#C9A96E;margin-bottom:6px;font-weight:600}
+.field input{width:100%;padding:13px 14px;border-radius:12px;border:1.5px solid rgba(230,180,90,0.2);background:rgba(255,255,255,0.05);color:#F5E6C8;font-size:14px}
+.field input:focus{outline:none;border-color:#E6B45A}
+
+.btn-primary{width:100%;padding:14px;border:none;border-radius:12px;background:linear-gradient(180deg,#E6B45A,#C99A3F);color:#1A1208;font-weight:800;font-size:14px;cursor:pointer;margin-top:6px}
+.btn-primary:disabled{opacity:.6}
+.msg{margin-top:12px;padding:10px 12px;border-radius:10px;font-size:12.5px;text-align:center;display:none}
+.msg.err{background:rgba(229,115,115,0.15);color:#E57373;display:block}
+.msg.ok{background:rgba(107,203,127,0.15);color:#6BCB7F;display:block}
+.msg.wait{background:rgba(230,180,90,0.15);color:#E6B45A;display:block}
+
+/* ===== MAIN APP ===== */
+#mainApp{display:none;flex:1;flex-direction:column}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:16px 18px;border-bottom:1px solid rgba(230,180,90,0.12);position:sticky;top:0;background:#0F0B06;z-index:5}
+.topbar .who{font-size:13px;font-weight:700}
+.topbar .who span{display:block;font-size:10.5px;color:#C9A96E;font-weight:500;margin-top:2px}
+.logout-btn{padding:8px 14px;font-size:12px;border-radius:10px;background:rgba(255,255,255,0.08);color:#F5E6C8;border:1px solid rgba(230,180,90,0.2);cursor:pointer}
+
+.tabs{display:flex;gap:8px;padding:14px 18px 0}
+.tab-btn{flex:1;padding:10px;border-radius:24px;border:1px solid rgba(230,180,90,0.15);background:rgba(255,255,255,0.05);color:#C9A96E;font-size:12.5px;font-weight:700;cursor:pointer;text-align:center}
+.tab-btn.active{background:linear-gradient(180deg,#E6B45A,#C99A3F);color:#1A1208;border-color:transparent}
+
+.content{flex:1;padding:16px 18px 40px;overflow-y:auto}
+.empty{text-align:center;padding:40px 20px;color:#C9A96E;font-size:13px}
+
+.order-card{background:rgba(255,255,255,0.04);border:1px solid rgba(230,180,90,0.12);border-radius:16px;padding:16px;margin-bottom:14px}
+.order-card .row{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px}
+.order-card .cust{font-weight:800;font-size:14px}
+.order-card .addr{font-size:12px;color:rgba(245,230,200,0.65);margin-top:2px}
+.order-card .items{font-size:12.5px;color:#E8DCC6;line-height:1.7;margin:10px 0;padding:10px;background:rgba(0,0,0,0.2);border-radius:10px}
+.order-card .total{font-size:15px;font-weight:800;color:#E6B45A}
+.badge{padding:4px 10px;border-radius:20px;font-size:10.5px;font-weight:700;white-space:nowrap}
+.badge.pool{background:rgba(79,195,247,0.15);color:#4FC3F7}
+.badge.active{background:rgba(230,180,90,0.15);color:#E6B45A}
+.badge.done{background:rgba(107,203,127,0.15);color:#6BCB7F}
+.action-btn{width:100%;padding:12px;border:none;border-radius:12px;font-weight:800;font-size:13px;cursor:pointer;margin-top:6px}
+.action-btn.accept{background:linear-gradient(180deg,#E6B45A,#C99A3F);color:#1A1208}
+.action-btn.deliver{background:linear-gradient(180deg,#6BCB7F,#4CAF50);color:#0A2E0F}
+.phone-link{font-size:12px;color:#4FC3F7;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ===================== AUTH SCREEN ===================== -->
+  <div id="authScreen">
+    <div class="brand">
+      <div class="icon">🛵</div>
+      <h1>DOWNTOWN RIDER</h1>
+      <p>Delivery Partner App</p>
+    </div>
+
+    <div class="auth-toggle">
+      <button id="loginToggleBtn" class="active" onclick="switchAuthMode('login')">Login</button>
+      <button id="registerToggleBtn" onclick="switchAuthMode('register')">Register</button>
+    </div>
+
+    <!-- LOGIN -->
+    <div id="loginForm">
+      <div class="field"><label>Phone Number</label><input id="loginPhone" type="tel" placeholder="03XXXXXXXXX"></div>
+      <div class="field"><label>PIN</label><input id="loginPin" type="password" inputmode="numeric" maxlength="6" placeholder="4–6 digit PIN"></div>
+      <button class="btn-primary" id="loginBtn" onclick="riderLogin()">Login →</button>
+      <div class="msg" id="loginMsg"></div>
+    </div>
+
+    <!-- REGISTER -->
+    <div id="registerForm" style="display:none">
+      <div class="field"><label>Full Name</label><input id="regName" type="text" placeholder="Your full name"></div>
+      <div class="field"><label>Phone Number</label><input id="regPhone" type="tel" placeholder="03XXXXXXXXX"></div>
+      <div class="field"><label>Create PIN</label><input id="regPin" type="password" inputmode="numeric" maxlength="6" placeholder="4–6 digit PIN"></div>
+      <div class="field"><label>Confirm PIN</label><input id="regPinConfirm" type="password" inputmode="numeric" maxlength="6" placeholder="Re-enter PIN"></div>
+      <button class="btn-primary" id="regBtn" onclick="riderRegister()">Submit Registration →</button>
+      <div class="msg" id="regMsg"></div>
+    </div>
+  </div>
+
+  <!-- ===================== MAIN APP ===================== -->
+  <div id="mainApp">
+    <div class="topbar">
+      <div class="who">👋 <span id="riderNameDisplay">Rider</span><span id="riderPhoneDisplay"></span></div>
+      <button class="logout-btn" onclick="riderLogout()">Logout</button>
+    </div>
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="pool" onclick="switchRiderTab('pool')">📦 Available <span id="poolBadge"></span></button>
+      <button class="tab-btn" data-tab="mine" onclick="switchRiderTab('mine')">🚴 My Deliveries</button>
+    </div>
+    <div class="content">
+      <div id="riderTab-pool">
+        <div id="poolList"></div>
+        <div class="empty" id="poolEmpty">No available orders right now.<br>New confirmed orders will appear here instantly.</div>
+      </div>
+      <div id="riderTab-mine" style="display:none">
+        <div id="mineList"></div>
+        <div class="empty" id="mineEmpty">You have no deliveries yet.<br>Accept an order from "Available" to get started.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script type="module">
+import { initializeApp, getApps, getApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getFirestore, collection, addDoc, query, where, orderBy, onSnapshot, updateDoc, doc, runTransaction, serverTimestamp, getDocs } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+// Same Firebase project as the main Downtown Supermart app — riders read/write
+// the same `orders` collection and their own `riders` collection.
+const firebaseConfig = {
+  apiKey: "AIzaSyC-M5iA-ajpaJvMycypKKbd8YNc-Ul2aDM",
+  authDomain: "downtown-24ed2.firebaseapp.com",
+  projectId: "downtown-24ed2",
+  storageBucket: "downtown-24ed2.firebasestorage.app",
+  messagingSenderId: "1087673809558",
+  appId: "1:1087673809558:web:f284bdffba9d90fedc60b7"
+};
+
+const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+let currentRider = JSON.parse(localStorage.getItem('rider_session') || 'null');
+let poolUnsub = null, mineUnsub = null;
+
+/* ---------- AUTH MODE TOGGLE ---------- */
+window.switchAuthMode = function(mode){
+  document.getElementById('loginToggleBtn').classList.toggle('active', mode==='login');
+  document.getElementById('registerToggleBtn').classList.toggle('active', mode==='register');
+  document.getElementById('loginForm').style.display = mode==='login' ? 'block' : 'none';
+  document.getElementById('registerForm').style.display = mode==='register' ? 'block' : 'none';
+}
+
+function showMsg(elId, text, type){
+  const el = document.getElementById(elId);
+  el.textContent = text;
+  el.className = 'msg ' + type;
+}
+
+/* ---------- REGISTER ---------- */
+window.riderRegister = async function(){
+  const name = document.getElementById('regName').value.trim();
+  const phone = document.getElementById('regPhone').value.trim();
+  const pin = document.getElementById('regPin').value.trim();
+  const pinConfirm = document.getElementById('regPinConfirm').value.trim();
+  const btn = document.getElementById('regBtn');
+
+  if(!name || !phone || !pin){ showMsg('regMsg','Please fill all fields','err'); return; }
+  if(!/^\d{4,6}$/.test(pin)){ showMsg('regMsg','PIN must be 4-6 digits','err'); return; }
+  if(pin !== pinConfirm){ showMsg('regMsg','PINs do not match','err'); return; }
+
+  btn.disabled = true; btn.textContent = 'Submitting...';
+  try{
+    // Prevent duplicate registration for the same phone number
+    const existing = await getExistingRiderDoc(phone);
+    if(existing){
+      showMsg('regMsg', existing.status==='pending' ? 'Registration already submitted — waiting for admin approval.' : 'This phone number is already registered.', 'wait');
+      btn.disabled=false; btn.textContent='Submit Registration →';
+      return;
+    }
+    await addDoc(collection(db, 'riders'), {
+      name, phone, pin, status: 'pending', requestedAt: serverTimestamp()
+    });
+    showMsg('regMsg', '✅ Registration submitted! Admin ki approval ka intezar karein, phir login kar sakte hain.', 'ok');
+    document.getElementById('regName').value='';
+    document.getElementById('regPhone').value='';
+    document.getElementById('regPin').value='';
+    document.getElementById('regPinConfirm').value='';
+  }catch(e){
+    showMsg('regMsg', 'Error: ' + e.message, 'err');
+  }finally{
+    btn.disabled = false; btn.textContent = 'Submit Registration →';
+  }
+}
+
+async function getExistingRiderDoc(phone){
+  const q = query(collection(db,'riders'), where('phone','==',phone));
+  const snap = await getDocs(q);
+  if(snap.empty) return null;
+  const d = snap.docs[0];
+  return { id: d.id, ...d.data() };
+}
+
+/* ---------- LOGIN ---------- */
+window.riderLogin = async function(){
+  const phone = document.getElementById('loginPhone').value.trim();
+  const pin = document.getElementById('loginPin').value.trim();
+  const btn = document.getElementById('loginBtn');
+  if(!phone || !pin){ showMsg('loginMsg','Please enter phone and PIN','err'); return; }
+
+  btn.disabled = true; btn.textContent = 'Checking...';
+  try{
+    const q = query(collection(db,'riders'), where('phone','==',phone));
+    const snap = await getDocs(q);
+    if(snap.empty){ showMsg('loginMsg','No account found with this phone number.','err'); return; }
+    const d = snap.docs[0];
+    const rider = { id: d.id, ...d.data() };
+    if(rider.pin !== pin){ showMsg('loginMsg','Incorrect PIN.','err'); return; }
+    if(rider.status === 'pending'){ showMsg('loginMsg','⏳ Your registration is awaiting admin approval.','wait'); return; }
+    if(rider.status === 'rejected'){ showMsg('loginMsg','Your registration was not approved. Contact admin.','err'); return; }
+    // approved → log in
+    currentRider = { id: rider.id, name: rider.name, phone: rider.phone };
+    localStorage.setItem('rider_session', JSON.stringify(currentRider));
+    showMsg('loginMsg','','ok');
+    enterApp();
+  }catch(e){
+    showMsg('loginMsg', 'Error: ' + e.message, 'err');
+  }finally{
+    btn.disabled = false; btn.textContent = 'Login →';
+  }
+}
+
+window.riderLogout = function(){
+  if(poolUnsub){ poolUnsub(); poolUnsub=null; }
+  if(mineUnsub){ mineUnsub(); mineUnsub=null; }
+  localStorage.removeItem('rider_session');
+  currentRider = null;
+  document.getElementById('mainApp').style.display='none';
+  document.getElementById('authScreen').style.display='flex';
+}
+
+/* ---------- MAIN APP ---------- */
+function enterApp(){
+  document.getElementById('authScreen').style.display='none';
+  document.getElementById('mainApp').style.display='flex';
+  document.getElementById('riderNameDisplay').textContent = currentRider.name;
+  document.getElementById('riderPhoneDisplay').textContent = currentRider.phone;
+  startPoolListener();
+  startMineListener();
+}
+
+window.switchRiderTab = function(tab){
+  document.querySelectorAll('.tab-btn').forEach(b=> b.classList.toggle('active', b.dataset.tab===tab));
+  document.getElementById('riderTab-pool').style.display = tab==='pool' ? 'block' : 'none';
+  document.getElementById('riderTab-mine').style.display = tab==='mine' ? 'block' : 'none';
+}
+
+function startPoolListener(){
+  const q = query(collection(db,'orders'), where('status','==','Confirmed'), orderBy('timestamp','desc'));
+  poolUnsub = onSnapshot(q, (snap)=>{
+    const orders = [];
+    snap.forEach(d=>{ const data=d.data(); if(!data.riderId) orders.push({id:d.id, ...data}); });
+    renderPool(orders);
+  }, (err)=>{ document.getElementById('poolList').innerHTML = '<div class="msg err" style="display:block">Error: '+err.message+'</div>'; });
+}
+
+function startMineListener(){
+  const q = query(collection(db,'orders'), where('riderId','==', currentRider.id), orderBy('timestamp','desc'));
+  mineUnsub = onSnapshot(q, (snap)=>{
+    const orders = [];
+    snap.forEach(d=> orders.push({id:d.id, ...d.data()}));
+    renderMine(orders);
+  }, (err)=>{ document.getElementById('mineList').innerHTML = '<div class="msg err" style="display:block">Error: '+err.message+'</div>'; });
+}
+
+function renderPool(orders){
+  const list = document.getElementById('poolList');
+  const empty = document.getElementById('poolEmpty');
+  const badge = document.getElementById('poolBadge');
+  badge.textContent = orders.length > 0 ? orders.length : '';
+  if(orders.length===0){ list.innerHTML=''; empty.style.display='block'; return; }
+  empty.style.display='none';
+  list.innerHTML = orders.map(o=>`
+    <div class="order-card">
+      <div class="row"><div><div class="cust">${o.name||'Customer'}</div><div class="addr">${o.address||''}</div></div><span class="badge pool">Confirmed</span></div>
+      <div class="items">${(o.items||[]).map(i=> `${i.name} × ${i.qty}`).join('<br>')}</div>
+      <div class="row" style="margin-bottom:0"><span class="total">Rs ${o.total||0}</span><a class="phone-link" href="tel:${o.phone||''}">📞 ${o.phone||''}</a></div>
+      <button class="action-btn accept" onclick="acceptOrder('${o.id}')">Accept Order</button>
+    </div>`).join('');
+}
+
+function renderMine(orders){
+  const list = document.getElementById('mineList');
+  const empty = document.getElementById('mineEmpty');
+  if(orders.length===0){ list.innerHTML=''; empty.style.display='block'; return; }
+  empty.style.display='none';
+  list.innerHTML = orders.map(o=>{
+    const isActive = o.status==='Out for Delivery';
+    const badgeCls = o.status==='Delivered' ? 'done' : 'active';
+    return `<div class="order-card">
+      <div class="row"><div><div class="cust">${o.name||'Customer'}</div><div class="addr">${o.address||''}</div></div><span class="badge ${badgeCls}">${o.status}</span></div>
+      <div class="items">${(o.items||[]).map(i=> `${i.name} × ${i.qty}`).join('<br>')}</div>
+      <div class="row" style="margin-bottom:0"><span class="total">Rs ${o.total||0}</span><a class="phone-link" href="tel:${o.phone||''}">📞 ${o.phone||''}</a></div>
+      ${isActive ? `<button class="action-btn deliver" onclick="markDelivered('${o.id}')">Mark Delivered</button>` : ''}
+    </div>`;
+  }).join('');
+}
+
+/* ---------- ACCEPT ORDER (race-condition safe via transaction) ---------- */
+window.acceptOrder = async function(orderId){
+  try{
+    await runTransaction(db, async (tx)=>{
+      const ref = doc(db, 'orders', orderId);
+      const snap = await tx.get(ref);
+      if(!snap.exists()) throw new Error('Order no longer exists.');
+      const data = snap.data();
+      if(data.riderId){ throw new Error('ALREADY_TAKEN'); }
+      tx.update(ref, {
+        riderId: currentRider.id,
+        riderName: currentRider.name,
+        riderPhone: currentRider.phone,
+        status: 'Out for Delivery',
+        acceptedAt: serverTimestamp()
+      });
+    });
+    switchRiderTab('mine');
+  }catch(e){
+    if(e.message === 'ALREADY_TAKEN'){ alert('Ye order kisi aur rider ne accept kar liya hai.'); }
+    else{ alert('Error: ' + e.message); }
+  }
+}
+
+window.markDelivered = async function(orderId){
+  try{
+    await updateDoc(doc(db,'orders',orderId), { status:'Delivered', deliveredAt: serverTimestamp() });
+  }catch(e){ alert('Error: ' + e.message); }
+}
+
+/* ---------- INIT ---------- */
+if(currentRider && currentRider.id){
+  enterApp();
+}
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js').catch(()=>{});
+}
+</script>
+</body>
+</html>

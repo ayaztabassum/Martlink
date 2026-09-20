@@ -81,7 +81,7 @@ body{ font-family: var(--font-body); text-rendering: optimizeLegibility; }
 
 <section class="page-banner">
   <div class="banner-img-wrap">
-    <img src="banners/blogbanner.jpg" width="1600" height="520" alt="Tips for Grocery Store Owners in Karachi - MartLink Banner with Shop Owner and Model" loading="eager" onerror="this.onerror=null; this.src='banners/bannerblog.jpg'; this.onerror=function(){this.src='blogbanner.jpg'}">
+    <img src="banners/818865615_1594115025526797_7391748797079198749_n.jpg" width="1600" height="520" alt="Tips for Grocery Store Owners in Karachi - MartLink Banner with Shop Owner and Model" loading="eager" onerror="this.onerror=null; this.src='banners/bannerblog.jpg'; this.onerror=function(){this.src='blogbanner.jpg'}">
   </div>
   <div class="container">
     <div class="banner-content">
@@ -106,7 +106,6 @@ body{ font-family: var(--font-body); text-rendering: optimizeLegibility; }
 
 <footer id="site-footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><a href="../index.html" class="brandmark"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50 8 A42 42 0 1 0 78 82" stroke="#e8a93c" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M22 34 H34 L42 66 H78" stroke="#e8a93c" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M42 66 H78 L86 42 H36" stroke="#e8a93c" stroke-width="6" stroke-linejoin="round" fill="none"/><circle cx="50" cy="78" r="6" fill="#e8a93c"/><circle cx="72" cy="78" r="6" fill="#e8a93c"/><rect x="66" y="10" width="9" height="9" fill="#fff8ec"/><rect x="54" y="19" width="7" height="7" fill="#e8a93c"/><rect x="44" y="27" width="6" height="6" fill="#e8a93c"/></svg><span class="word">Mart<span>Link</span> Solutions</span></a><p>We build branded websites and mobile apps for local marts, grocery stores, and restaurants — so you keep your customers, your data, and your profit.</p></div><div><h4>Explore</h4><a href="../services.html">Services</a><a href="../pricing.html">Pricing</a><a href="../portfolio.html">Portfolio</a><a href="../about.html">About Us</a></div><div><h4>Company</h4><a href="../about.html">Our Story</a><a href="../contact.html">Contact</a><a href="./">Blog</a></div><div><h4>Get in Touch</h4><p>📞 0302-2858832</p><p>✉ martlinksolutions@gmail.com</p><p>📍 Serving Local Stores Across Karachi</p></div></div><div class="footer-bottom"><span>© 2026 MartLink Solutions by Ayaz Tabassum. All rights reserved.</span><span>Empowering Local Stores, Digitally.</span></div></div></footer>
 
-<script>
 var navToggle = document.getElementById('nav-toggle');
 var navLinks = document.getElementById('nav-links');
 if (navToggle) { navToggle.addEventListener('click', function(){ navLinks.classList.toggle('open'); }); }
@@ -144,87 +143,67 @@ function renderBlogs(page){
   } else {
     loadMoreWrap.style.display = 'block';
   }
+<script>
+// FAST LOGIC: First 12 instant, rest background
+const BLOGS_PER_PAGE = 9;
+const FIRST_BATCH = 12;
+let allBlogsData = [];
+let displayedCount = 0;
+let bgLoading = false;
+
+function renderNextBatch(){
+  const grid = document.getElementById('blogGrid');
+  const end = Math.min(displayedCount + BLOGS_PER_PAGE, allBlogsData.length);
+  const fragment = document.createDocumentFragment();
+  for(let i=displayedCount; i<end; i++){
+    const b = allBlogsData[i];
+    const card = document.createElement('a');
+    card.href = b.fileName; card.className='blog-card';
+    card.innerHTML = `<div class="num">${b.isNumber?b.num:'★'}</div><h3>${b.title}</h3><p>${b.desc}</p>`;
+    fragment.appendChild(card);
+  }
+  grid.appendChild(fragment);
+  displayedCount = end;
+  document.getElementById('blogCount').textContent = `Showing ${displayedCount} of ${allBlogsData.length}${bgLoading?' (more loading in background...)':''}`;
+  document.getElementById('load-more-wrap').style.display = displayedCount < allBlogsData.length || bgLoading? 'block' : 'none';
 }
 
-async function loadBlogs() {
-  const grid = document.getElementById('blogGrid');
-  const loading = document.getElementById('loading');
-  const noBlogs = document.getElementById('no-blogs');
-  const loadMoreWrap = document.getElementById('load-more-wrap');
-  const loadMoreBtn = document.getElementById('load-more-btn');
-  
-  let allFiles = new Set();
+async function fetchSingle(fileName){
+  try{
+    const res = await fetch(fileName,{cache:'no-store'});
+    if(!res.ok) return null;
+    const html = await res.text();
+    if(html.length<120) return null;
+    const doc = new DOMParser().parseFromString(html,'text/html');
+    let title = doc.querySelector('h1')?.innerText || doc.querySelector('title')?.innerText || fileName;
+    let desc = doc.querySelector('meta[name="description"]')?.content || doc.querySelector('p')?.innerText?.substring(0,120) || 'Read tips';
+    return {fileName, title:title.substring(0,72), desc, num:fileName.replace('.html',''), isNumber:!isNaN(parseInt(fileName)), sortKey: parseInt(fileName)||9999};
+  }catch(e){ return null; }
+}
 
-  // METHOD 1: Directory listing
-  try {
-    const dirRes = await fetch('./', {cache:'no-store'});
-    if(dirRes.ok){
-      const text = await dirRes.text();
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(text, 'text/html');
-      doc.querySelectorAll('a[href]').forEach(a=>{
-        let href = a.getAttribute('href');
-        if(href && href.toLowerCase().endsWith('.html') && href.toLowerCase() !== 'index.html' && !href.includes('://') && !href.startsWith('/') && !href.startsWith('?')){
-          href = href.split('?')[0].split('#')[0];
-          if(href) allFiles.add(href);
-        }
-      });
-    }
-  } catch(e){}
+async function loadBlogs(){
+  let allFiles = [];
+  for(let i=1;i<=200;i++) allFiles.push(i+'.html');
 
-  // METHOD 2: Fallback 1..200
-  if(allFiles.size===0){
-    for(let i=1;i<=200;i++) allFiles.add(i+'.html');
-  } else {
-    for(let i=1;i<=100;i++) allFiles.add(i+'.html');
+  // PHASE 1: First 12 INSTANT
+  const first12 = allFiles.slice(0,12);
+  const firstResults = await Promise.all(first12.map(f=>fetchSingle(f)));
+  firstResults.forEach(r=>{ if(r) allBlogsData.push(r); });
+  allBlogsData.sort((a,b)=>a.sortKey-b.sortKey);
+  document.getElementById('loading').style.display='none';
+  renderNextBatch();
+
+  // PHASE 2: Background loading 13..200 while user reads
+  bgLoading = true;
+  const remaining = allFiles.slice(12);
+  for(let i=0;i<remaining.length;i+=5){
+    const chunk = remaining.slice(i,i+5);
+    const results = await Promise.all(chunk.map(f=>fetchSingle(f)));
+    results.forEach(r=>{ if(r &&!allBlogsData.find(x=>x.fileName===r.fileName)){ allBlogsData.push(r); }});
+    allBlogsData.sort((a,b)=>a.sortKey-b.sortKey);
+    await new Promise(r=>setTimeout(r,150)); // Main thread free
   }
-
-  // Fetch all blogs first into array (no DOM manipulation yet - prevents vibration)
-  for (let fileName of allFiles) {
-    if(fileName.toLowerCase()==='index.html') continue;
-    try {
-      const res = await fetch(fileName, {method:'GET', cache:'no-store'});
-      if (!res.ok) continue;
-      const htmlText = await res.text();
-      if(htmlText.length < 120) continue;
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(htmlText, 'text/html');
-      let title = doc.querySelector('h1')?.innerText?.trim() || doc.querySelector('title')?.innerText?.trim() || fileName;
-      let desc = doc.querySelector('meta[name="description"]')?.content?.trim() || '';
-      if (!desc) { const firstP = doc.querySelector('article p, main p, .content p, p'); desc = firstP?.innerText?.substring(0,135) || 'Read tips for grocery store owners.'; }
-      if (title.length > 75) title = title.substring(0,72) + '...';
-      if (desc.length > 120) desc = desc.substring(0,120) + '...';
-      const num = fileName.replace('.html','');
-      const isNumber = !isNaN(parseInt(num));
-      let date = doc.querySelector('time')?.innerText || doc.querySelector('.date')?.innerText || doc.querySelector('small')?.innerText || 'MartLink PK';
-      date = date.substring(0,35);
-      allBlogsData.push({fileName, title, desc, num, isNumber, date});
-    } catch(e){ continue; }
-  }
-
-  // Sort: numbers first then SEO slugs
-  allBlogsData.sort((a,b)=>{
-    const na = parseInt(a.num); const nb = parseInt(b.num);
-    if(!isNaN(na) && !isNaN(nb)) return na - nb;
-    if(!isNaN(na)) return -1;
-    if(!isNaN(nb)) return 1;
-    return a.fileName.localeCompare(b.fileName);
-  });
-
-  loading.style.display = 'none';
-  if (allBlogsData.length === 0){ noBlogs.style.display = 'block'; return; }
-
-  // Render first 9 only
-  renderBlogs(0);
-  currentPage = 0;
-
-  // Load More button
-  loadMoreBtn.addEventListener('click', function(){
-    currentPage++;
-    renderBlogs(currentPage);
-    // Smooth scroll a little to show new blogs without vibration
-    window.scrollBy({top: 200, behavior: 'smooth'});
-  });
+  bgLoading = false;
 }
 loadBlogs();
 </script>

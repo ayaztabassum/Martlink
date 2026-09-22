@@ -25,32 +25,40 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Blog - Tips for Grocery Store Owners | MartLink Solutions</title>
+<meta name="description" content="Read latest tips on grocery delivery apps, store growth, and how to avoid Foodpanda commission in Karachi by MartLink Solutions.">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--brand-dark:#1c1108;--gold:#e8a93c;--cream:#fffaf1;--cream-card:#fff8ec;--line:rgba(232,169,60,0.18);--muted:#8a7a62;--radius:20px;--font-display:'Poppins',sans-serif;}
-body{margin:0;font-family:Inter,sans-serif;background:var(--cream)}
+body{margin:0;font-family:'Inter',sans-serif;background:var(--cream)}
 .page-banner{ background: var(--cream); padding:0; text-align:center; overflow:hidden; }
 .banner-img-wrap{ width:100%; background: var(--cream); overflow:hidden; line-height:0; position:relative; }
 .banner-img-wrap .blur-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:blur(28px) brightness(0.85); transform:scale(1.1); z-index:1; }
 .banner-img-wrap .sharp-center{ position:relative; z-index:2; width:88%; max-width:1600px; margin:24px auto; border:4px solid #fff; box-shadow:0 8px 32px rgba(0,0,0,0.18); display:block; height:auto; border-radius:8px; }
 @media(min-width:901px){ .banner-img-wrap{ min-height:520px; display:flex; align-items:center; justify-content:center; } .banner-img-wrap .sharp-center{ width:86%; margin:32px auto; } }
 @media(max-width:900px){ .banner-img-wrap{ min-height:auto; padding:12px; } .banner-img-wrap .sharp-center{ width:96%; margin:8px auto; border-width:3px; } }
-.banner-content{ padding:28px 24px 40px; min-height:120px; text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center; background:var(--cream); }
+.banner-content{ padding:28px 24px 40px; text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center; background:var(--cream); }
 .banner-content h1{ font-family: var(--font-display); font-size:38px; font-weight:800; color: var(--brand-dark); margin:14px auto 0; text-align:center; max-width:800px; line-height:1.25; }
-.banner-content p{ text-align:center; max-width:700px; margin:12px auto 0; color:var(--muted); line-height:1.6; }
+.banner-content p{ text-align:center; max-width:700px; margin:12px auto 0; color:var(--muted); line-height:1.6; font-size:14px; }
 .eyebrow{ display:inline-block; background: rgba(232,169,60,0.15); color: var(--gold); font-weight:700; font-size:11px; padding:7px 14px; border-radius:20px; letter-spacing:1.2px; text-transform:uppercase; margin:0 auto; }
+#blog-listing{ background: var(--cream); padding:20px 0 80px; }
 .container{ max-width:1140px; margin:0 auto; padding:0 24px; }
 .blog-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; margin-top:24px; }
-.blog-card{ background: var(--cream-card); border:1px solid var(--line); border-radius: var(--radius); padding:26px; display:flex; flex-direction:column; min-height:210px; }
-.blog-card h3{ font-family: var(--font-display); font-size:17px; font-weight:700; color: var(--brand-dark); }
-@media(max-width:900px){.blog-grid{ grid-template-columns:1fr 1fr; }.banner-content h1{ font-size:30px; }}
+.blog-card{ background: var(--cream-card); border:1px solid var(--line); border-radius: var(--radius); padding:26px; display:flex; flex-direction:column; min-height:230px; cursor:pointer; transition:all .25s; }
+.blog-card:hover{ transform: translateY(-4px); border-color: rgba(232,169,60,0.5); box-shadow: 0 10px 30px rgba(28,17,8,0.12); background:#fff; }
+.blog-card .num{ width:38px; height:38px; border-radius:12px; background: linear-gradient(135deg, var(--brand-dark), #2b1c0e); color: var(--gold); display:flex; align-items:center; justify-content:center; font-family: var(--font-display); font-weight:800; font-size:15px; margin-bottom:14px; }
+.blog-card h3{ font-family: var(--font-display); font-size:16px; font-weight:700; color: var(--brand-dark); min-height:48px; margin:0; line-height:1.35; }
+.blog-card p{ color: var(--muted); font-size:13px; line-height:1.6; margin-top:10px; flex:1; }
+.blog-card .meta{ margin-top:16px; display:flex; justify-content:space-between; align-items:center; font-size:12px; }
+.blog-card .read{ font-size:12px; font-weight:700; color: var(--brand-dark); background: linear-gradient(135deg, var(--gold), #f5c86a); padding:7px 14px; border-radius:20px; }
+@media(max-width:900px){.blog-grid{ grid-template-columns:1fr 1fr; }.banner-content h1{ font-size:28px; }}
 @media(max-width:600px){.blog-grid{ grid-template-columns:1fr; } }
 </style>
 </head>
 <body>
 <section class="page-banner">
   <div class="banner-img-wrap">
-    <img class="blur-bg" src="banners/1789938975098.png" alt="">
-    <img class="sharp-center" src="banners/1789938975098.png" alt="Tips for Grocery Store Owners in Karachi">
+    <img class="blur-bg" src="./banners/1789938975098.png" alt="">
+    <img class="sharp-center" src="./banners/1789938975098.png" alt="Tips for Grocery Store Owners in Karachi">
   </div>
   <div class="banner-content">
     <span class="eyebrow">MARTLINK INSIGHTS</span>
@@ -58,5 +66,35 @@ body{margin:0;font-family:Inter,sans-serif;background:var(--cream)}
     <p>Real guides on grocery apps, Foodpanda commission, and how to grow your mart</p>
   </div>
 </section>
+<section id="blog-listing">
+  <div class="container">
+    <div id="blogGrid" class="blog-grid"></div>
+  </div>
+</section>
+<script>
+// HARDCODED - No fetch needed, always visible
+const blogs = [
+{file:"benefits-of-digitalizing-supermarket-karachi.html", title:"Benefits of Digitalizing Your Mart / Super Market in Karachi 2026", desc:"Discover benefits of digitalizing your mart/super market in Karachi 2026. Traditional vs Digital mart growth comparison by MartLink."},
+{file:"best-grocery-app-development-companies-karachi.html", title:"Top 5 Grocery App Development Companies in Karachi 2026", desc:"Top 5 grocery delivery app development companies in Karachi 2026. #1 MartLink Solutions by Ayaz - complete comparison."},
+{file:"grocery-app-rider-app-manager-dashboard-complete-package.html", title:"Sirf App Banana Kafi Nahi? Budget Package Me Rider App + Manager Dashboard", desc:"Sirf customer app banana kafi nahi hai. Budget friendly package me Rider App, Live Tracking System aur Manager Dashboard complete."},
+{file:"grocery-store-app-development-cost-in-karachi.html", title:"Grocery Store Ke Liye Apni Mobile App Banwane Mei Kitna Kharcha Aata Hai?", desc:"Grocery store ke liye mobile app banwane ki cost kya hai? Karachi ke mart owners ke liye complete app cost breakdown."},
+{file:"grocery-store-online-setup-guide.html", title:"Karachi Me Apna Grocery Store Online Kaise Laye? 7 Din Me Store Setup Guide", desc:"Karachi me apna grocery / kiryana store online kaise laye? 7 din me step-by-step setup guide by MartLink Solutions."},
+{file:"how-much-does-it-cost-to-build-a-grocery-delivery-app-in-karachi.html", title:"How Much Does It Cost to Build a Premium Grocery Delivery App in Karachi?", desc:"In 2026, a premium grocery delivery app in Karachi costs Rs 80,000 setup + small monthly support by MartLink. Full breakdown."},
+{file:"how-to-start-online-grocery-business-complete-guide.html", title:"Online Grocery Business Kaise Start Karein? Karachi Ke Liye Complete Guide", desc:"Online grocery business kaise start karein? Karachi ke mart owners ke liye complete step-by-step guide to launch online."},
+{file:"local-freelancer-vs-martlink-solutions.html", title:"Local Freelancer vs MartLink Solutions: Sasta App Mehnga Kyun Parta Hai?", desc:"Local freelancer se grocery app sasti lagti hai lekin 3 mahine me mehngi par jati hai. Janiye kyun MartLink best choice hai."},
+{file:"online-grocery-business-karachi.html", title:"Online Grocery Business Karachi - Complete Setup 2026", desc:"Online grocery business in Karachi 2026 - How to digitalize your mart, avoid Foodpanda commission and grow sales."},
+{file:"own-grocery-app-vs-foodpanda-karachi.html", title:"Own Grocery App vs Foodpanda - Karachi Store Owners Ke Liye Best?", desc:"Apna khud ka grocery app vs Foodpanda? Karachi ke store owners ke liye commission comparison aur profit analysis."},
+{file:"why-choose-martlink-for-grocery-business-karachi.html", title:"Why Choose MartLink for Grocery Business in Karachi?", desc:"Why Karachi grocery store owners trust MartLink Solutions by Ayaz for their online mart setup and delivery app."},
+{file:"why-grocery-app-better-than-whatsapp-karachi.html", title:"Why Grocery App is Better Than WhatsApp Ordering in Karachi?", desc:"WhatsApp pe order lena vs professional grocery app? Janiye kyun app WhatsApp se 10x behtar hai Karachi marts ke liye."}
+];
+const grid = document.getElementById('blogGrid');
+blogs.forEach((b,i)=>{
+  const card = document.createElement('div');
+  card.className = 'blog-card';
+  card.innerHTML = `<div class="num">${i+1}</div><h3>${b.title}</h3><p>${b.desc}</p><div class="meta"><span>MartLink PK</span><span class="read">Read Full →</span></div>`;
+  card.addEventListener('click', ()=>{ window.location.href = './' + b.file; });
+  grid.appendChild(card);
+});
+</script>
 <script>(function(){var loc=location.href.replace(/#.*$/,"");var ATTR_NAMES=["data-product-id","data-productid","data-product_id","product-id","productid","product_id","data-source-entity-id","source-entity-id","source_entity_id","data-product","data-metadata","data-meta"];var DATASET_KEYS=["productId","productid","product_id","sourceEntityId","sourceentityid","source_entity_id","product","metadata","meta"];function readProductId(value){if(typeof value!=="string"||value.length===0)return null;if(/^[0-9]{6,}$/.test(value))return value;var match=value.match(/(?:product(?:_|-)?id|source(?:_|-)?entity(?:_|-)?id)["'=:\s]+([0-9]{6,})/i);return match?match[1]:null}function extractProductId(start){for(var node=start;node&&node!==document.body;node=node.parentElement){for(var i=0;i<ATTR_NAMES.length;i++){var attrValue=node.getAttribute&&node.getAttribute(ATTR_NAMES[i]);var attrProductId=readProductId(attrValue);if(attrProductId)return attrProductId}var dataset=node.dataset||null;if(dataset){for(var j=0;j<DATASET_KEYS.length;j++){var dataValue=dataset[DATASET_KEYS[j]];var dataProductId=readProductId(dataValue);if(dataProductId)return dataProductId}}}return null}function isInlineMediaSlotElement(node){return !!(node&&node.getAttribute&&node.getAttribute("data-clippy-inline-media-slot")!==null)}function findInlineMediaSlot(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(isInlineMediaSlotElement(node))return node}return null}function readInlineMediaUrl(node){if(!node)return null;return node.getAttribute&&((node.getAttribute("data-clippy-inline-media-url")||node.getAttribute("data-url")||node.getAttribute("data_url")))||node.href||null}function stripHash(url){return String(url).replace(/#.*$/,"")}function urlsMatch(a,b){if(!a||!b)return false;try{return stripHash(new URL(a,loc).href)===stripHash(new URL(b,loc).href)}catch(_){return stripHash(a)===stripHash(b)}}function isFirstPartyReelUrl(value){try{var url=new URL(value,loc);if(url.protocol!=="https:")return false;var host=url.hostname.toLowerCase();var supported=host==="instagram.com"||host.endsWith(".instagram.com")||host==="facebook.com"||host.endsWith(".facebook.com");return supported&&/\/reels?\//i.test(url.pathname)}catch(_){return false}}function isInlineMediaUrlClick(node,href){var slot=findInlineMediaSlot(node);if(!slot)return false;var slotUrl=readInlineMediaUrl(slot);if(slotUrl)return urlsMatch(href,slotUrl);return isFirstPartyReelUrl(href)}function findDataHref(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(node.getAttribute){var href=node.getAttribute("data-href")||node.getAttribute("data-url");if(href)return{href:href,node:node}}}return null}var nativeOpen=window.open;window.open=function(url){if(parent!==window&&typeof url==="string"&&/^https?:\/\//.test(url)){parent.postMessage({type:"ecto:usercontent-link-click",href:url},"*");return null}return nativeOpen?nativeOpen.apply(window,arguments):null};document.addEventListener("click",function(e){var target=e.target instanceof Element?e.target:null;if(!target)return;if(parent===window)return;var a=target.closest?target.closest("a[href]"):null;if(a&&a.href&&/^https?:\/\//.test(a.href)&&a.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(a,a.href))return;var productId=extractProductId(target)||extractProductId(a);if(productId){e.preventDefault();parent.postMessage({type:"ecto-artifact-link-click",productId:productId},"*");return}e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:a.href},"*");return}var dataHref=findDataHref(target);if(dataHref&&/^https?:\/\//.test(dataHref.href)&&dataHref.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(dataHref.node,dataHref.href))return;e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:dataHref.href},"*")}},true)})();</script><script>(function(){var FOCUS_TYPE="ecto:artifact-focus-request";var CLOSE_TYPE="ecto:artifact-close-request";function focusArtifactDocument(){var body=document.body;if(!body)return;try{window.focus();}catch(e){}if(!body.hasAttribute("tabindex"))body.setAttribute("tabindex","-1");try{body.focus({preventScroll:true});}catch(e){try{body.focus();}catch(e2){}}}window.addEventListener("message",function(event){if(event.source!==window.parent)return;var data=event.data;if(!data||typeof data!=="object"||data.type!==FOCUS_TYPE)return;if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",focusArtifactDocument,{once:true});return;}focusArtifactDocument();});window.addEventListener("keydown",function(event){if(event.key!=="Escape")return;window.setTimeout(function(){if(event.defaultPrevented)return;window.parent.postMessage({type:CLOSE_TYPE},"*");},0);});})();</script></body>
 </html>

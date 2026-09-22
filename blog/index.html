@@ -1,176 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><style>
+@font-face {
+  font-family: "Optimistic";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("/fonts/OptimisticAI_VF_Optimized.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Optimistic Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/OptimisticMono_W_TextRegular.woff2") format("woff2");
+}
+:where(html) {
+  font-family: "Optimistic", system-ui, sans-serif;
+}
+:where(code, pre, kbd, samp) {
+  font-family: "Optimistic Mono", ui-monospace, monospace;
+}
+</style>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Blog - Tips for Grocery Store Owners | MartLink Solutions</title>
-<meta name="description" content="Read latest tips on grocery delivery apps, store growth, and how to avoid Foodpanda commission in Karachi by MartLink Solutions.">
-<link rel="canonical" href="https://martlinkpk.com/blog/" />
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/style.css">
 <style>
 :root{--brand-dark:#1c1108;--gold:#e8a93c;--cream:#fffaf1;--cream-card:#fff8ec;--line:rgba(232,169,60,0.18);--muted:#8a7a62;--radius:20px;--font-display:'Poppins',sans-serif;}
+body{margin:0;font-family:Inter,sans-serif;background:var(--cream)}
 .page-banner{ background: var(--cream); padding:0; text-align:center; overflow:hidden; }
 .banner-img-wrap{ width:100%; background: var(--cream); overflow:hidden; line-height:0; position:relative; }
-/* DESKTOP: blur background fills, sharp center safe */
 .banner-img-wrap .blur-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:blur(28px) brightness(0.85); transform:scale(1.1); z-index:1; }
 .banner-img-wrap .sharp-center{ position:relative; z-index:2; width:88%; max-width:1600px; margin:24px auto; border:4px solid #fff; box-shadow:0 8px 32px rgba(0,0,0,0.18); display:block; height:auto; border-radius:8px; }
 @media(min-width:901px){ .banner-img-wrap{ min-height:520px; display:flex; align-items:center; justify-content:center; } .banner-img-wrap .sharp-center{ width:86%; margin:32px auto; } }
-@media(max-width:900px){ .banner-img-wrap{ min-height:auto; padding:12px; } .banner-img-wrap .sharp-center{ width:96%; margin:8px auto; border-width:3px; } .banner-img-wrap .blur-bg{ filter:blur(20px) brightness(0.9); } }
-.banner-content{ padding:24px 0 36px; min-height:120px; }
-.banner-content h1{ font-family: var(--font-display); font-size:38px; font-weight:800; color: var(--brand-dark); margin:12px 0 0; }
-.eyebrow{ display:inline-block; background: rgba(232,169,60,0.15); color: var(--gold); font-weight:700; font-size:11px; padding:7px 14px; border-radius:20px; letter-spacing:1.2px; text-transform:uppercase; }
-#blog-listing{ background: var(--cream); padding:20px 0 80px; min-height:600px; }
+@media(max-width:900px){ .banner-img-wrap{ min-height:auto; padding:12px; } .banner-img-wrap .sharp-center{ width:96%; margin:8px auto; border-width:3px; } }
+.banner-content{ padding:28px 24px 40px; min-height:120px; text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center; background:var(--cream); }
+.banner-content h1{ font-family: var(--font-display); font-size:38px; font-weight:800; color: var(--brand-dark); margin:14px auto 0; text-align:center; max-width:800px; line-height:1.25; }
+.banner-content p{ text-align:center; max-width:700px; margin:12px auto 0; color:var(--muted); line-height:1.6; }
+.eyebrow{ display:inline-block; background: rgba(232,169,60,0.15); color: var(--gold); font-weight:700; font-size:11px; padding:7px 14px; border-radius:20px; letter-spacing:1.2px; text-transform:uppercase; margin:0 auto; }
 .container{ max-width:1140px; margin:0 auto; padding:0 24px; }
-.blog-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; margin-top:24px; min-height:300px; }
-.blog-card{ background: var(--cream-card); border:1px solid var(--line); border-radius: var(--radius); padding:26px; transition: all 0.25s; display:flex; flex-direction:column; min-height:210px; cursor:pointer; animation: fadeIn 0.3s ease; }
-@keyframes fadeIn{ from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);} }
-.blog-card:hover{ transform: translateY(-4px); border-color: rgba(232,169,60,0.5); box-shadow: 0 10px 30px rgba(28,17,8,0.12); background:#fff; }
-.blog-card .num{ width:38px; height:38px; border-radius:12px; background: linear-gradient(135deg, var(--brand-dark), #2b1c0e); color: var(--gold); display:flex; align-items:center; justify-content:center; font-family: var(--font-display); font-weight:800; font-size:15px; margin-bottom:14px; }
-.blog-card h3{ font-family: var(--font-display); font-size:17px; font-weight:700; color: var(--brand-dark); min-height:48px; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; margin:0; }
-.blog-card p{ color: var(--muted); font-size:13.5px; line-height:1.6; margin-top:10px; flex:1; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
-.blog-card .meta{ margin-top:16px; display:flex; justify-content:space-between; align-items:center; }
-.blog-card .read{ font-size:12px; font-weight:700; color: var(--brand-dark); background: linear-gradient(135deg, var(--gold), #f5c86a); padding:7px 14px; border-radius:20px; }
-#loading{ text-align:center; padding:20px; color: var(--muted); }
-#loading-bar{ width:200px; height:4px; background: var(--line); border-radius:4px; margin:10px auto; overflow:hidden; }
-#loading-progress{ height:100%; width:0%; background: linear-gradient(90deg, var(--gold), #f5c86a); transition: width 0.3s; }
-#no-blogs{ display:none; text-align:center; padding:60px 20px; }
-#load-more-wrap{ text-align:center; margin-top:36px; display:none; }
-#load-more-btn{ background: linear-gradient(135deg, var(--brand-dark), #2b1c0e); color: var(--gold); border:1px solid var(--line); padding:14px 32px; border-radius:30px; font-family: var(--font-display); font-weight:700; font-size:14px; cursor:pointer; }
-.blog-count{ text-align:center; margin-top:12px; font-size:12px; color: var(--muted); }
-.bg-status{ text-align:center; font-size:11px; color: var(--gold); margin-top:8px; opacity:0.8; }
+.blog-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; margin-top:24px; }
+.blog-card{ background: var(--cream-card); border:1px solid var(--line); border-radius: var(--radius); padding:26px; display:flex; flex-direction:column; min-height:210px; }
+.blog-card h3{ font-family: var(--font-display); font-size:17px; font-weight:700; color: var(--brand-dark); }
 @media(max-width:900px){.blog-grid{ grid-template-columns:1fr 1fr; }.banner-content h1{ font-size:30px; }}
 @media(max-width:600px){.blog-grid{ grid-template-columns:1fr; } }
 </style>
 </head>
 <body>
-<header id="site-header">
-  <div class="container">
-    <a href="../index.html" class="brandmark"><svg viewBox="0 0 100 100"><path d="M50 8 A42 42 0 1 0 78 82" stroke="#e8a93c" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M22 34 H34 L42 66 H78" stroke="#e8a93c" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M42 66 H78 L86 42 H36" stroke="#e8a93c" stroke-width="6" stroke-linejoin="round" fill="none"/><circle cx="50" cy="78" r="6" fill="#e8a93c"/><circle cx="72" cy="78" r="6" fill="#e8a93c"/></svg><span class="word">Mart<span>Link</span> Solutions</span></a>
-    <nav id="nav-links"><a href="../index.html">Home</a><a href="../services.html">Services</a><a href="../pricing.html">Pricing</a><a href="../portfolio.html">Portfolio</a><a href="../about.html">About</a><a href="../contact.html">Contact</a><a href="index.html" class="active">Blog</a></nav>
-    <div id="nav-cta"><a href="../contact.html" class="btn btn-outline" style="padding:11px 22px; font-size:14px;">Free Demo</a><button id="nav-toggle"><span></span><span></span><span></span></button></div>
-  </div>
-</header>
 <section class="page-banner">
   <div class="banner-img-wrap">
-    <!-- Blur background fills entire banner - prevents cropping look on desktop+mobile -->
-    <img class="blur-bg" src="banners/1789938975098.png" alt="" aria-hidden="true">
-    <!-- Sharp center with safe margins - heads never crop -->
-    <img class="sharp-center" src="banners/1789938975098.png" alt="Tips for Grocery Store Owners in Karachi - MartLink Insights">
+    <img class="blur-bg" src="banners/1789938975098.png" alt="">
+    <img class="sharp-center" src="banners/1789938975098.png" alt="Tips for Grocery Store Owners in Karachi">
   </div>
-  <div class="container">
-    <div class="banner-content">
-      <span class="eyebrow">MartLink Insights • 12 Guides Updated</span>
-      <h1>Tips for Grocery Store Owners in Karachi</h1>
-      <p>Real guides on grocery apps, Foodpanda commission, and how to grow your mart — All 12 renamed blogs live.</p>
-    </div>
+  <div class="banner-content">
+    <span class="eyebrow">MARTLINK INSIGHTS</span>
+    <h1>Tips for Grocery Store Owners in Karachi</h1>
+    <p>Real guides on grocery apps, Foodpanda commission, and how to grow your mart</p>
   </div>
 </section>
-<section id="blog-listing">
-  <div class="container">
-    <div id="loading"><div>Loading 12 renamed blogs...</div><div id="loading-bar"><div id="loading-progress"></div></div></div>
-    <div id="blogGrid" class="blog-grid"></div>
-    <div id="no-blogs">No blogs found. Check file names.</div>
-    <div id="load-more-wrap"><button id="load-more-btn">Load More</button></div>
-      <div class="blog-count" id="blogCount"></div>
-      <div class="bg-status" id="bgStatus"></div>
-    </div>
-  </div>
-</section>
-<footer id="site-footer"><div class="container"><div class="footer-bottom"><span>© 2026 MartLink Solutions by Ayaz Tabassum.</span><span>Empowering Local Stores, Digitally.</span></div></div></footer>
-<script>
-var navToggle = document.getElementById('nav-toggle');
-var navLinks = document.getElementById('nav-links');
-if (navToggle) { navToggle.addEventListener('click', function(){ navLinks.classList.toggle('open'); }); }
-const BLOGS_PER_PAGE = 9;
-const FIRST_BATCH = 12;
-let allBlogsData = [];
-let displayedCount = 0;
-let bgLoading = false;
-function renderNextBatch(){
-  const grid = document.getElementById('blogGrid');
-  const loadMoreWrap = document.getElementById('load-more-wrap');
-  const blogCount = document.getElementById('blogCount');
-  const start = displayedCount;
-  const end = Math.min(start + BLOGS_PER_PAGE, allBlogsData.length);
-  if(start >= allBlogsData.length) return;
-  const fragment = document.createDocumentFragment();
-  for(let i=start; i<end; i++){
-    const b = allBlogsData[i];
-    const card = document.createElement('div');
-    card.className = 'blog-card';
-    card.setAttribute('data-href', b.fileName);
-    card.innerHTML = `<div class="num">${b.isNumber? b.num : '★'}</div><h3>${b.title}</h3><p>${b.desc}</p><div class="meta"><span>${b.date}</span><span class="read">Read Full →</span></div>`;
-    card.addEventListener('click', function(e){ e.preventDefault(); window.location.href = './' + this.getAttribute('data-href'); });
-    fragment.appendChild(card);
-  }
-  grid.appendChild(fragment);
-  displayedCount = end;
-  blogCount.textContent = `Showing ${displayedCount} of ${allBlogsData.length}${bgLoading? ' (more loading...)' : ''}`;
-  if(displayedCount >= allBlogsData.length && !bgLoading){ loadMoreWrap.style.display = 'none'; } else { loadMoreWrap.style.display = 'block'; }
-}
-async function fetchSingle(fileName){
-  try{
-    const res = await fetch(fileName, {cache:'no-store'});
-    if(!res.ok) return null;
-    const htmlText = await res.text();
-    if(htmlText.length < 120) return null;
-    const doc = new DOMParser().parseFromString(htmlText, 'text/html');
-    let title = doc.querySelector('h1')?.innerText?.trim() || doc.querySelector('title')?.innerText?.trim() || fileName.replace('.html','').replace(/-/g,' ');
-    let desc = doc.querySelector('meta[name="description"]')?.content?.trim() || '';
-    if(!desc){ const p = doc.querySelector('article p, main p, .content p, p'); desc = p?.innerText?.substring(0,135) || 'Read tips for grocery store owners in Karachi.'; }
-    if(title.length>75) title = title.substring(0,72)+'...';
-    if(desc.length>120) desc = desc.substring(0,120)+'...';
-    const num = fileName.replace('.html','');
-    const isNumber = !isNaN(parseInt(num));
-    let date = doc.querySelector('time')?.innerText || 'MartLink PK';
-    date = date.substring(0,30);
-    return {fileName, title, desc, num, isNumber, date, sortKey: isNumber? parseInt(num) : 9999, lower: fileName.toLowerCase()};
-  }catch(e){ return null; }
-}
-async function loadBlogs(){
-  const loading = document.getElementById('loading');
-  const loadingProgress = document.getElementById('loading-progress');
-  const bgStatus = document.getElementById('bgStatus');
-  // EXACT 12 RENAMED FILES - provided by user
-  let allFiles = [
-    "benefits-of-digitalizing-supermarket-karachi.html",
-    "best-grocery-app-development-companies-karachi.html",
-    "grocery-app-rider-app-manager-dashboard-complete-package.html",
-    "grocery-store-app-development-cost-in-karachi.html",
-    "grocery-store-online-setup-guide.html",
-    "how-much-does-it-cost-to-build-a-grocery-delivery-app-in-karachi.html",
-    "how-to-start-online-grocery-business-complete-guide.html",
-    "local-freelancer-vs-martlink-solutions.html",
-    "online-grocery-business-karachi.html",
-    "own-grocery-app-vs-foodpanda-karachi.html",
-    "why-choose-martlink-for-grocery-business-karachi.html",
-    "why-grocery-app-better-than-whatsapp-karachi.html"
-  ];
-  // Try blogs.json override if exists (for future)
-  try{
-    const jsonRes = await fetch('blogs.json', {cache:'no-store'});
-    if(jsonRes.ok){
-      const list = await jsonRes.json();
-      if(Array.isArray(list) && list.length>0){
-        allFiles = list.map(f=>f.trim()).filter(f=>f.toLowerCase().endsWith('.html') && f.toLowerCase()!=='index.html');
-        bgStatus.textContent = 'Loaded '+allFiles.length+' files from blogs.json';
-      }
-    }
-  }catch(e){}
-  allFiles = [...new Set(allFiles)];
-  loadingProgress.style.width = '20%';
-  const firstBatch = allFiles.slice(0, FIRST_BATCH);
-  const firstResults = await Promise.all(firstBatch.map(f=>fetchSingle(f)));
-  loadingProgress.style.width = '70%';
-  firstResults.forEach(r=>{ if(r) allBlogsData.push(r); });
-  allBlogsData.sort((a,b)=> a.sortKey - b.sortKey || a.fileName.localeCompare(b.fileName));
-  loading.style.display = 'none';
-  if(allBlogsData.length===0){ document.getElementById('no-blogs').style.display='block'; return; }
-  renderNextBatch();
-  document.getElementById('load-more-btn').addEventListener('click', function(){ renderNextBatch(); window.scrollBy({top: 250, behavior: 'smooth'}); });
-}
-loadBlogs();
-</script>
-</body>
+<script>(function(){var loc=location.href.replace(/#.*$/,"");var ATTR_NAMES=["data-product-id","data-productid","data-product_id","product-id","productid","product_id","data-source-entity-id","source-entity-id","source_entity_id","data-product","data-metadata","data-meta"];var DATASET_KEYS=["productId","productid","product_id","sourceEntityId","sourceentityid","source_entity_id","product","metadata","meta"];function readProductId(value){if(typeof value!=="string"||value.length===0)return null;if(/^[0-9]{6,}$/.test(value))return value;var match=value.match(/(?:product(?:_|-)?id|source(?:_|-)?entity(?:_|-)?id)["'=:\s]+([0-9]{6,})/i);return match?match[1]:null}function extractProductId(start){for(var node=start;node&&node!==document.body;node=node.parentElement){for(var i=0;i<ATTR_NAMES.length;i++){var attrValue=node.getAttribute&&node.getAttribute(ATTR_NAMES[i]);var attrProductId=readProductId(attrValue);if(attrProductId)return attrProductId}var dataset=node.dataset||null;if(dataset){for(var j=0;j<DATASET_KEYS.length;j++){var dataValue=dataset[DATASET_KEYS[j]];var dataProductId=readProductId(dataValue);if(dataProductId)return dataProductId}}}return null}function isInlineMediaSlotElement(node){return !!(node&&node.getAttribute&&node.getAttribute("data-clippy-inline-media-slot")!==null)}function findInlineMediaSlot(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(isInlineMediaSlotElement(node))return node}return null}function readInlineMediaUrl(node){if(!node)return null;return node.getAttribute&&((node.getAttribute("data-clippy-inline-media-url")||node.getAttribute("data-url")||node.getAttribute("data_url")))||node.href||null}function stripHash(url){return String(url).replace(/#.*$/,"")}function urlsMatch(a,b){if(!a||!b)return false;try{return stripHash(new URL(a,loc).href)===stripHash(new URL(b,loc).href)}catch(_){return stripHash(a)===stripHash(b)}}function isFirstPartyReelUrl(value){try{var url=new URL(value,loc);if(url.protocol!=="https:")return false;var host=url.hostname.toLowerCase();var supported=host==="instagram.com"||host.endsWith(".instagram.com")||host==="facebook.com"||host.endsWith(".facebook.com");return supported&&/\/reels?\//i.test(url.pathname)}catch(_){return false}}function isInlineMediaUrlClick(node,href){var slot=findInlineMediaSlot(node);if(!slot)return false;var slotUrl=readInlineMediaUrl(slot);if(slotUrl)return urlsMatch(href,slotUrl);return isFirstPartyReelUrl(href)}function findDataHref(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(node.getAttribute){var href=node.getAttribute("data-href")||node.getAttribute("data-url");if(href)return{href:href,node:node}}}return null}var nativeOpen=window.open;window.open=function(url){if(parent!==window&&typeof url==="string"&&/^https?:\/\//.test(url)){parent.postMessage({type:"ecto:usercontent-link-click",href:url},"*");return null}return nativeOpen?nativeOpen.apply(window,arguments):null};document.addEventListener("click",function(e){var target=e.target instanceof Element?e.target:null;if(!target)return;if(parent===window)return;var a=target.closest?target.closest("a[href]"):null;if(a&&a.href&&/^https?:\/\//.test(a.href)&&a.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(a,a.href))return;var productId=extractProductId(target)||extractProductId(a);if(productId){e.preventDefault();parent.postMessage({type:"ecto-artifact-link-click",productId:productId},"*");return}e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:a.href},"*");return}var dataHref=findDataHref(target);if(dataHref&&/^https?:\/\//.test(dataHref.href)&&dataHref.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(dataHref.node,dataHref.href))return;e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:dataHref.href},"*")}},true)})();</script><script>(function(){var FOCUS_TYPE="ecto:artifact-focus-request";var CLOSE_TYPE="ecto:artifact-close-request";function focusArtifactDocument(){var body=document.body;if(!body)return;try{window.focus();}catch(e){}if(!body.hasAttribute("tabindex"))body.setAttribute("tabindex","-1");try{body.focus({preventScroll:true});}catch(e){try{body.focus();}catch(e2){}}}window.addEventListener("message",function(event){if(event.source!==window.parent)return;var data=event.data;if(!data||typeof data!=="object"||data.type!==FOCUS_TYPE)return;if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",focusArtifactDocument,{once:true});return;}focusArtifactDocument();});window.addEventListener("keydown",function(event){if(event.key!=="Escape")return;window.setTimeout(function(){if(event.defaultPrevented)return;window.parent.postMessage({type:CLOSE_TYPE},"*");},0);});})();</script></body>
 </html>
